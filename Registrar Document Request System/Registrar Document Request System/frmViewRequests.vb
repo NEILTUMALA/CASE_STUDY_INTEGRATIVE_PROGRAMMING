@@ -3,6 +3,12 @@
 Public Class frmViewRequests
 
     Private Sub frmViewRequests_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cboUpdatePayment.Items.Clear()
+        cboUpdatePayment.Items.AddRange(New String() {"Unpaid", "Paid"})
+
+        cboUpdateStatus.Items.Clear()
+        cboUpdateStatus.Items.AddRange(New String() {"Pending", "Processing", "Ready for Pickup", "Completed"})
+
         LoadAllRequests()
     End Sub
 
@@ -24,6 +30,18 @@ Public Class frmViewRequests
             dgvRequests.DataSource = dt
 
             dr.Close()
+
+            If dgvRequests.Columns.Count > 0 Then
+                dgvRequests.Columns("RequestID").Visible = False
+                dgvRequests.Columns("RequestNo").HeaderText = "Request No"
+                dgvRequests.Columns("StudentID").HeaderText = "Student ID"
+                dgvRequests.Columns("StudentName").HeaderText = "Student Name"
+                dgvRequests.Columns("RequestDate").HeaderText = "Date"
+                dgvRequests.Columns("TotalAmount").HeaderText = "Total (P)"
+                dgvRequests.Columns("PaymentStatus").HeaderText = "Payment Status"
+                dgvRequests.Columns("Status").HeaderText = "Request Status"
+            End If
+
         Catch ex As Exception
             MsgBox("Error loading requests: " & ex.Message, MsgBoxStyle.Critical)
         Finally
@@ -55,6 +73,7 @@ Public Class frmViewRequests
             dgvRequests.DataSource = dt
 
             dr.Close()
+
         Catch ex As Exception
             MsgBox("Error searching requests: " & ex.Message, MsgBoxStyle.Critical)
         Finally
@@ -104,6 +123,10 @@ Public Class frmViewRequests
         Finally
             cn.Close()
         End Try
+    End Sub
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Me.Close()
     End Sub
 
 End Class

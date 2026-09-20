@@ -11,7 +11,13 @@ Public Class frmRequest
 
         cboPaymentStatus.Text = "Unpaid"
         cboRequestStatus.Text = "Pending"
-        txtProcessed.Text = frmLogin.LoggedInFullName
+
+        ' Set processed user name safely
+        If Not String.IsNullOrEmpty(frmLogin.LoggedInFullName) Then
+            txtProcessed.Text = frmLogin.LoggedInFullName
+        Else
+            txtProcessed.Text = "System Administrator"
+        End If
     End Sub
 
     Private Sub GenerateRequestNo()
@@ -23,16 +29,16 @@ Public Class frmRequest
             Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar()) + 1
             txtRequestNo.Text = "REQ-" & DateTime.Now.Year.ToString() & "-" & count.ToString("D5")
         Catch ex As Exception
-            MsgBox("Error generating Request No: " & ex.Message, MsgBoxStyle.Critical)
+            MsgBox("Error generating Request No: " & ex.Message, MsgBoxStyle.Critical, "Database Error")
         Finally
-            cn.Close()
+            If cn.State = ConnectionState.Open Then cn.Close()
         End Try
     End Sub
 
-    Private Sub LoadDocuments()
+    Public Sub LoadDocuments()
         Try
             connection()
-            sql = "SELECT DocumentName FROM tbldocuments WHERE Status = 'Active'"
+            sql = "SELECT DocumentName FROM tbldocuments WHERE Status = 'Active' ORDER BY DocumentName ASC"
             cmd = New MySqlCommand(sql, cn)
             dr = cmd.ExecuteReader()
 
@@ -42,22 +48,24 @@ Public Class frmRequest
             End While
             dr.Close()
         Catch ex As Exception
-            MsgBox("Error loading documents: " & ex.Message, MsgBoxStyle.Critical)
+            MsgBox("Error loading documents: " & ex.Message, MsgBoxStyle.Critical, "Database Error")
         Finally
-            cn.Close()
+            If cn.State = ConnectionState.Open Then cn.Close()
         End Try
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        If txtStudentID.Text = "" Then
-            MsgBox("Please enter a Student ID.", MsgBoxStyle.Exclamation)
+        If String.IsNullOrWhiteSpace(txtStudentID.Text) Then
+            MsgBox("Please enter a Student ID.", MsgBoxStyle.Exclamation, "Validation")
             Exit Sub
         End If
 
         Try
             connection()
-            sql = "SELECT FirstName, LastName, Course, YearLevel FROM tblstudents WHERE StudentID = '" & txtStudentID.Text & "'"
+            sql = "SELECT FirstName, LastName, Course, YearLevel FROM tblstudents WHERE StudentID = @StudentID"
             cmd = New MySqlCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@StudentID", txtStudentID.Text.Trim())
+
             dr = cmd.ExecuteReader()
 
             If dr.Read() Then
@@ -65,37 +73,41 @@ Public Class frmRequest
                 txtCourse.Text = dr("Course").ToString()
                 txtYearLevel.Text = dr("YearLevel").ToString()
             Else
-                MsgBox("Student ID not found.", MsgBoxStyle.Exclamation)
+                MsgBox("Student ID not found.", MsgBoxStyle.Exclamation, "Search Result")
                 txtStudentName.Text = ""
                 txtCourse.Text = ""
                 txtYearLevel.Text = ""
             End If
             dr.Close()
         Catch ex As Exception
-            MsgBox("Error searching student: " & ex.Message, MsgBoxStyle.Critical)
+            MsgBox("Error searching student: " & ex.Message, MsgBoxStyle.Critical, "Database Error")
         Finally
-            cn.Close()
+            If cn.State = ConnectionState.Open Then cn.Close()
         End Try
     End Sub
 
     Private Sub cmbDocument_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbDocument.SelectedIndexChanged
+        If String.IsNullOrEmpty(cmbDocument.Text) Then Exit Sub
+
         Try
             connection()
-            sql = "SELECT DocumentID, Fee FROM tbldocuments WHERE DocumentName = '" & cmbDocument.Text & "'"
+            sql = "SELECT DocumentID, Fee FROM tbldocuments WHERE DocumentName = @DocName AND Status = 'Active'"
             cmd = New MySqlCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@DocName", cmbDocument.Text)
+
             dr = cmd.ExecuteReader()
 
             If dr.Read() Then
-                SelectedDocID = dr("DocumentID")
-                SelectedDocFee = dr("Fee")
+                SelectedDocID = Convert.ToInt32(dr("DocumentID"))
+                SelectedDocFee = Convert.ToDecimal(dr("Fee"))
                 txtAmount.Text = SelectedDocFee.ToString("0.00")
                 CalculateTotal()
             End If
             dr.Close()
         Catch ex As Exception
-            MsgBox("Error getting fee: " & ex.Message, MsgBoxStyle.Critical)
+            MsgBox("Error fetching document fee: " & ex.Message, MsgBoxStyle.Critical, "Database Error")
         Finally
-            cn.Close()
+            If cn.State = ConnectionState.Open Then cn.Close()
         End Try
     End Sub
 
@@ -104,13 +116,14 @@ Public Class frmRequest
     End Sub
 
     Private Sub CalculateTotal()
-        Dim total As Decimal = SelectedDocFee * numQuantity.Value
+        Dim qty As Decimal = numQuantity.Value
+        Dim total As Decimal = SelectedDocFee * qty
         txtTotalAmount.Text = total.ToString("0.00")
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If txtStudentName.Text = "" Or cmbDocument.Text = "" Then
-            MsgBox("Please complete student search and document selection first.", MsgBoxStyle.Exclamation)
+        If String.IsNullOrWhiteSpace(txtStudentName.Text) Or String.IsNullOrEmpty(cmbDocument.Text) Then
+            MsgBox("Please complete student search and document selection first.", MsgBoxStyle.Exclamation, "Validation")
             Exit Sub
         End If
 
@@ -118,21 +131,34 @@ Public Class frmRequest
             connection()
 
             sql = "INSERT INTO tblrequest (RequestNo, StudentID, RequestDate, TotalAmount, PaymentStatus, Status, CreatedBy) " &
-                  "VALUES ('" & txtRequestNo.Text & "', '" & txtStudentID.Text & "', '" & dtpRequestDate.Value.ToString("yyyy-MM-dd HH:mm:ss") & "', " &
-                  "'" & txtTotalAmount.Text & "', '" & cboPaymentStatus.Text & "', '" & cboRequestStatus.Text & "', '" & frmLogin.LoggedInUserID & "')"
+                  "VALUES (@RequestNo, @StudentID, @RequestDate, @TotalAmount, @PaymentStatus, @Status, @CreatedBy)"
             cmd = New MySqlCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@RequestNo", txtRequestNo.Text)
+            cmd.Parameters.AddWithValue("@StudentID", txtStudentID.Text.Trim())
+            cmd.Parameters.AddWithValue("@RequestDate", dtpRequestDate.Value.ToString("yyyy-MM-dd HH:mm:ss"))
+            cmd.Parameters.AddWithValue("@TotalAmount", txtTotalAmount.Text)
+            cmd.Parameters.AddWithValue("@PaymentStatus", cboPaymentStatus.Text)
+            cmd.Parameters.AddWithValue("@Status", cboRequestStatus.Text)
+            cmd.Parameters.AddWithValue("@CreatedBy", If(frmLogin.LoggedInUserID > 0, frmLogin.LoggedInUserID, 1))
+
             cmd.ExecuteNonQuery()
 
-            Dim newRequestID As Integer = cmd.LastInsertedId
+            Dim newRequestID As Long = cmd.LastInsertedId
 
             sql = "INSERT INTO tblrequestdetails (RequestID, DocumentID, Quantity, Amount, SubTotal) " &
-                  "VALUES ('" & newRequestID & "', '" & SelectedDocID & "', '" & numQuantity.Value & "', '" & SelectedDocFee & "', '" & txtTotalAmount.Text & "')"
+                  "VALUES (@RequestID, @DocumentID, @Quantity, @Amount, @SubTotal)"
             cmd = New MySqlCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@RequestID", newRequestID)
+            cmd.Parameters.AddWithValue("@DocumentID", SelectedDocID)
+            cmd.Parameters.AddWithValue("@Quantity", numQuantity.Value)
+            cmd.Parameters.AddWithValue("@Amount", SelectedDocFee)
+            cmd.Parameters.AddWithValue("@SubTotal", txtTotalAmount.Text)
+
             cmd.ExecuteNonQuery()
 
-            MsgBox("Request saved successfully!", MsgBoxStyle.Information)
+            MsgBox("Request saved successfully!", MsgBoxStyle.Information, "Success")
 
-            ' Reset Form Controls
+            ' Reset Form Inputs
             GenerateRequestNo()
             txtStudentID.Text = ""
             txtStudentName.Text = ""
@@ -142,20 +168,71 @@ Public Class frmRequest
             txtAmount.Text = ""
             txtTotalAmount.Text = ""
             numQuantity.Value = 1
+            SelectedDocID = 0
+            SelectedDocFee = 0.00
 
         Catch ex As Exception
-            MsgBox("Error saving request: " & ex.Message, MsgBoxStyle.Critical)
+            MsgBox("Error saving request: " & ex.Message, MsgBoxStyle.Critical, "Database Error")
         Finally
-            cn.Close()
+            If cn.State = ConnectionState.Open Then cn.Close()
         End Try
     End Sub
 
-    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        If String.IsNullOrWhiteSpace(txtStudentName.Text) Or String.IsNullOrEmpty(cmbDocument.Text) Then
+            MsgBox("Please select a student and document first before printing.", MsgBoxStyle.Exclamation, "Validation")
+            Exit Sub
+        End If
 
+        Using dlg As New PrintPreviewDialog()
+            dlg.Document = PrintDocument1
+            dlg.ShowDialog()
+        End Using
+    End Sub
+
+    ' Receipt Layout & Graphics Design
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        Dim fontTitle As New Font("Arial", 16, FontStyle.Bold)
+        Dim fontHeader As New Font("Arial", 12, FontStyle.Bold)
+        Dim fontBody As New Font("Arial", 10, FontStyle.Regular)
+
+        Dim startX As Integer = 50
+        Dim startY As Integer = 50
+
+        ' Header
+        e.Graphics.DrawString("LYCEUM OF ALABANG", fontTitle, Brushes.Black, startX, startY)
+        e.Graphics.DrawString("Registrar Document Request Receipt", fontHeader, Brushes.Black, startX, startY + 30)
+        e.Graphics.DrawString("------------------------------------------------------------------", fontBody, Brushes.Black, startX, startY + 50)
+
+        ' Details
+        e.Graphics.DrawString("Request No: " & txtRequestNo.Text, fontBody, Brushes.Black, startX, startY + 70)
+        e.Graphics.DrawString("Date: " & dtpRequestDate.Value.ToString("yyyy-MM-dd"), fontBody, Brushes.Black, startX, startY + 90)
+        e.Graphics.DrawString("Student Name: " & txtStudentName.Text, fontBody, Brushes.Black, startX, startY + 110)
+        e.Graphics.DrawString("Course & Year: " & txtCourse.Text & " - " & txtYearLevel.Text, fontBody, Brushes.Black, startX, startY + 130)
+
+        e.Graphics.DrawString("------------------------------------------------------------------", fontBody, Brushes.Black, startX, startY + 150)
+
+        ' Items
+        e.Graphics.DrawString("Document: " & cmbDocument.Text, fontBody, Brushes.Black, startX, startY + 170)
+        e.Graphics.DrawString("Unit Price: P " & txtAmount.Text, fontBody, Brushes.Black, startX, startY + 190)
+        e.Graphics.DrawString("Quantity: " & numQuantity.Value.ToString(), fontBody, Brushes.Black, startX, startY + 210)
+        e.Graphics.DrawString("Total Amount: P " & txtTotalAmount.Text, fontHeader, Brushes.Black, startX, startY + 230)
+
+        e.Graphics.DrawString("------------------------------------------------------------------", fontBody, Brushes.Black, startX, startY + 250)
+
+        ' Footer
+        e.Graphics.DrawString("Payment Status: " & cboPaymentStatus.Text, fontBody, Brushes.Black, startX, startY + 270)
+        e.Graphics.DrawString("Processed By: " & txtProcessed.Text, fontBody, Brushes.Black, startX, startY + 290)
+        e.Graphics.DrawString("Thank you!", fontHeader, Brushes.Black, startX + 100, startY + 330)
+    End Sub
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        Me.Close()
     End Sub
 
     Private Sub btnOpen_Click(sender As Object, e As EventArgs) Handles btnOpen.Click
         Dim viewForm As New frmViewRequests()
         viewForm.Show()
     End Sub
+
 End Class

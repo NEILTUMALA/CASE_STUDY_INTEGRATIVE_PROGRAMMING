@@ -22,6 +22,7 @@ Partial Class frmRequest
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRequest))
         Me.txtRequestNo = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtpRequestDate = New System.Windows.Forms.DateTimePicker()
@@ -54,6 +55,10 @@ Partial Class frmRequest
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnOpen = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.btnPrint = New System.Windows.Forms.Button()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         CType(Me.numQuantity, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,7 +67,7 @@ Partial Class frmRequest
         'txtRequestNo
         '
         Me.txtRequestNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtRequestNo.Location = New System.Drawing.Point(953, 308)
+        Me.txtRequestNo.Location = New System.Drawing.Point(953, 462)
         Me.txtRequestNo.Name = "txtRequestNo"
         Me.txtRequestNo.ReadOnly = True
         Me.txtRequestNo.Size = New System.Drawing.Size(276, 34)
@@ -72,7 +77,7 @@ Partial Class frmRequest
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(689, 308)
+        Me.Label1.Location = New System.Drawing.Point(689, 462)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(219, 28)
         Me.Label1.TabIndex = 1
@@ -81,7 +86,7 @@ Partial Class frmRequest
         'dtpRequestDate
         '
         Me.dtpRequestDate.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpRequestDate.Location = New System.Drawing.Point(953, 357)
+        Me.dtpRequestDate.Location = New System.Drawing.Point(953, 511)
         Me.dtpRequestDate.Name = "dtpRequestDate"
         Me.dtpRequestDate.Size = New System.Drawing.Size(276, 22)
         Me.dtpRequestDate.TabIndex = 2
@@ -101,18 +106,20 @@ Partial Class frmRequest
         Me.txtStudentID.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtStudentID.Location = New System.Drawing.Point(339, 45)
         Me.txtStudentID.Name = "txtStudentID"
-        Me.txtStudentID.Size = New System.Drawing.Size(296, 34)
+        Me.txtStudentID.Size = New System.Drawing.Size(572, 34)
         Me.txtStudentID.TabIndex = 4
         '
         'btnSearch
         '
+        Me.btnSearch.BackColor = System.Drawing.SystemColors.Desktop
         Me.btnSearch.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSearch.Location = New System.Drawing.Point(694, 45)
+        Me.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnSearch.Location = New System.Drawing.Point(1011, 27)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(127, 50)
         Me.btnSearch.TabIndex = 5
         Me.btnSearch.Text = "Search"
-        Me.btnSearch.UseVisualStyleBackColor = True
+        Me.btnSearch.UseVisualStyleBackColor = False
         '
         'txtStudentName
         '
@@ -120,7 +127,7 @@ Partial Class frmRequest
         Me.txtStudentName.Location = New System.Drawing.Point(339, 95)
         Me.txtStudentName.Name = "txtStudentName"
         Me.txtStudentName.ReadOnly = True
-        Me.txtStudentName.Size = New System.Drawing.Size(296, 34)
+        Me.txtStudentName.Size = New System.Drawing.Size(572, 34)
         Me.txtStudentName.TabIndex = 6
         '
         'txtCourse
@@ -129,7 +136,7 @@ Partial Class frmRequest
         Me.txtCourse.Location = New System.Drawing.Point(339, 149)
         Me.txtCourse.Name = "txtCourse"
         Me.txtCourse.ReadOnly = True
-        Me.txtCourse.Size = New System.Drawing.Size(296, 34)
+        Me.txtCourse.Size = New System.Drawing.Size(572, 34)
         Me.txtCourse.TabIndex = 7
         '
         'txtYearLevel
@@ -138,7 +145,7 @@ Partial Class frmRequest
         Me.txtYearLevel.Location = New System.Drawing.Point(339, 202)
         Me.txtYearLevel.Name = "txtYearLevel"
         Me.txtYearLevel.ReadOnly = True
-        Me.txtYearLevel.Size = New System.Drawing.Size(296, 34)
+        Me.txtYearLevel.Size = New System.Drawing.Size(572, 34)
         Me.txtYearLevel.TabIndex = 8
         '
         'Label3
@@ -185,9 +192,10 @@ Partial Class frmRequest
         '
         Me.cmbDocument.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbDocument.FormattingEnabled = True
+        Me.cmbDocument.Items.AddRange(New Object() {"Transcript of Records", "Certificate of Enrollment", "Certificate of Good Moral", "Certification", "Honorable Dismissal"})
         Me.cmbDocument.Location = New System.Drawing.Point(340, 308)
         Me.cmbDocument.Name = "cmbDocument"
-        Me.cmbDocument.Size = New System.Drawing.Size(293, 37)
+        Me.cmbDocument.Size = New System.Drawing.Size(320, 37)
         Me.cmbDocument.TabIndex = 13
         '
         'numQuantity
@@ -196,7 +204,7 @@ Partial Class frmRequest
         Me.numQuantity.Location = New System.Drawing.Point(340, 357)
         Me.numQuantity.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.numQuantity.Name = "numQuantity"
-        Me.numQuantity.Size = New System.Drawing.Size(293, 34)
+        Me.numQuantity.Size = New System.Drawing.Size(320, 34)
         Me.numQuantity.TabIndex = 14
         Me.numQuantity.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
@@ -216,7 +224,7 @@ Partial Class frmRequest
         Me.txtAmount.Location = New System.Drawing.Point(340, 404)
         Me.txtAmount.Name = "txtAmount"
         Me.txtAmount.ReadOnly = True
-        Me.txtAmount.Size = New System.Drawing.Size(293, 34)
+        Me.txtAmount.Size = New System.Drawing.Size(320, 34)
         Me.txtAmount.TabIndex = 16
         '
         'Label8
@@ -245,7 +253,7 @@ Partial Class frmRequest
         Me.txtTotalAmount.Location = New System.Drawing.Point(340, 453)
         Me.txtTotalAmount.Name = "txtTotalAmount"
         Me.txtTotalAmount.ReadOnly = True
-        Me.txtTotalAmount.Size = New System.Drawing.Size(293, 34)
+        Me.txtTotalAmount.Size = New System.Drawing.Size(320, 34)
         Me.txtTotalAmount.TabIndex = 19
         '
         'cboPaymentStatus
@@ -253,7 +261,7 @@ Partial Class frmRequest
         Me.cboPaymentStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboPaymentStatus.FormattingEnabled = True
         Me.cboPaymentStatus.Items.AddRange(New Object() {"Unpaid", "Paid"})
-        Me.cboPaymentStatus.Location = New System.Drawing.Point(953, 154)
+        Me.cboPaymentStatus.Location = New System.Drawing.Point(953, 308)
         Me.cboPaymentStatus.Name = "cboPaymentStatus"
         Me.cboPaymentStatus.Size = New System.Drawing.Size(276, 37)
         Me.cboPaymentStatus.TabIndex = 20
@@ -262,7 +270,7 @@ Partial Class frmRequest
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(689, 157)
+        Me.Label10.Location = New System.Drawing.Point(689, 311)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(222, 28)
         Me.Label10.TabIndex = 21
@@ -272,7 +280,7 @@ Partial Class frmRequest
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(689, 206)
+        Me.Label11.Location = New System.Drawing.Point(689, 360)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(214, 28)
         Me.Label11.TabIndex = 22
@@ -283,7 +291,7 @@ Partial Class frmRequest
         Me.cboRequestStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboRequestStatus.FormattingEnabled = True
         Me.cboRequestStatus.Items.AddRange(New Object() {"Unpaid", "Paid"})
-        Me.cboRequestStatus.Location = New System.Drawing.Point(953, 206)
+        Me.cboRequestStatus.Location = New System.Drawing.Point(953, 360)
         Me.cboRequestStatus.Name = "cboRequestStatus"
         Me.cboRequestStatus.Size = New System.Drawing.Size(276, 37)
         Me.cboRequestStatus.TabIndex = 23
@@ -292,7 +300,7 @@ Partial Class frmRequest
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(689, 256)
+        Me.Label12.Location = New System.Drawing.Point(689, 410)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(189, 28)
         Me.Label12.TabIndex = 24
@@ -301,7 +309,7 @@ Partial Class frmRequest
         'txtProcessed
         '
         Me.txtProcessed.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProcessed.Location = New System.Drawing.Point(953, 256)
+        Me.txtProcessed.Location = New System.Drawing.Point(953, 410)
         Me.txtProcessed.Name = "txtProcessed"
         Me.txtProcessed.ReadOnly = True
         Me.txtProcessed.Size = New System.Drawing.Size(276, 34)
@@ -356,7 +364,7 @@ Partial Class frmRequest
         Me.btnOpen.BackColor = System.Drawing.Color.Blue
         Me.btnOpen.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOpen.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnOpen.Location = New System.Drawing.Point(953, 446)
+        Me.btnOpen.Location = New System.Drawing.Point(1011, 131)
         Me.btnOpen.Name = "btnOpen"
         Me.btnOpen.Size = New System.Drawing.Size(153, 50)
         Me.btnOpen.TabIndex = 30
@@ -367,11 +375,46 @@ Partial Class frmRequest
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(689, 456)
+        Me.Label13.Location = New System.Drawing.Point(968, 95)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(232, 28)
         Me.Label13.TabIndex = 31
         Me.Label13.Text = "View All Request:"
+        '
+        'PrintDocument1
+        '
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(968, 184)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(183, 28)
+        Me.Label14.TabIndex = 32
+        Me.Label14.Text = "Print Receipt:"
+        '
+        'btnPrint
+        '
+        Me.btnPrint.BackColor = System.Drawing.Color.Blue
+        Me.btnPrint.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrint.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.btnPrint.Location = New System.Drawing.Point(1011, 215)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(153, 50)
+        Me.btnPrint.TabIndex = 33
+        Me.btnPrint.Text = "Print"
+        Me.btnPrint.UseVisualStyleBackColor = False
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
         '
         'frmRequest
         '
@@ -379,6 +422,8 @@ Partial Class frmRequest
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Goldenrod
         Me.ClientSize = New System.Drawing.Size(1263, 671)
+        Me.Controls.Add(Me.btnPrint)
+        Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.btnOpen)
         Me.Controls.Add(Me.PictureBox2)
@@ -455,4 +500,8 @@ Partial Class frmRequest
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents btnOpen As Button
     Friend WithEvents Label13 As Label
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents Label14 As Label
+    Friend WithEvents btnPrint As Button
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
 End Class
