@@ -1,0 +1,110 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Tumal\\Downloads\\Case Study\\Registrar Document Request System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{631C639E-200F-4C54-B8D0-8623FD423145}|Registrar Document Request System\\Registrar Document Request System.vbproj|c:\\users\\tumal\\downloads\\case study\\registrar document request system\\registrar document request system\\frmviewrequests.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{631C639E-200F-4C54-B8D0-8623FD423145}|Registrar Document Request System\\Registrar Document Request System.vbproj|solutionrelative:registrar document request system\\frmviewrequests.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{631C639E-200F-4C54-B8D0-8623FD423145}|Registrar Document Request System\\Registrar Document Request System.vbproj|C:\\Users\\Tumal\\Downloads\\Case Study\\Registrar Document Request System\\registrar document request system\\frmrequest.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{631C639E-200F-4C54-B8D0-8623FD423145}|Registrar Document Request System\\Registrar Document Request System.vbproj|solutionrelative:registrar document request system\\frmrequest.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{631C639E-200F-4C54-B8D0-8623FD423145}|Registrar Document Request System\\Registrar Document Request System.vbproj|C:\\Users\\Tumal\\Downloads\\Case Study\\Registrar Document Request System\\registrar document request system\\frmlogin.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{631C639E-200F-4C54-B8D0-8623FD423145}|Registrar Document Request System\\Registrar Document Request System.vbproj|solutionrelative:registrar document request system\\frmlogin.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{631C639E-200F-4C54-B8D0-8623FD423145}|Registrar Document Request System\\Registrar Document Request System.vbproj|C:\\Users\\Tumal\\Downloads\\Case Study\\Registrar Document Request System\\registrar document request system\\frmmainmenu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{631C639E-200F-4C54-B8D0-8623FD423145}|Registrar Document Request System\\Registrar Document Request System.vbproj|solutionrelative:registrar document request system\\frmmainmenu.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmViewRequests.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\Tumal\\Downloads\\Case Study\\Registrar Document Request System\\Registrar Document Request System\\frmViewRequests.vb",
+              "RelativeDocumentMoniker": "Registrar Document Request System\\frmViewRequests.vb",
+              "ToolTip": "C:\\Users\\Tumal\\Downloads\\Case Study\\Registrar Document Request System\\Registrar Document Request System\\frmViewRequests.vb [Design]",
+              "RelativeToolTip": "Registrar Document Request System\\frmViewRequests.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-09-17T09:04:19.244Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmRequest.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\Tumal\\Downloads\\Case Study\\Registrar Document Request System\\Registrar Document Request System\\frmRequest.vb",
+              "RelativeDocumentMoniker": "Registrar Document Request System\\frmRequest.vb",
+              "ToolTip": "C:\\Users\\Tumal\\Downloads\\Case Study\\Registrar Document Request System\\Registrar Document Request System\\frmRequest.vb [Design]",
+              "RelativeToolTip": "Registrar Document Request System\\frmRequest.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-09-17T09:04:18.062Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmLogin.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\Tumal\\Downloads\\Case Study\\Registrar Document Request System\\Registrar Document Request System\\frmLogin.vb",
+              "RelativeDocumentMoniker": "Registrar Document Request System\\frmLogin.vb",
+              "ToolTip": "C:\\Users\\Tumal\\Downloads\\Case Study\\Registrar Document Request System\\Registrar Document Request System\\frmLogin.vb [Design]",
+              "RelativeToolTip": "Registrar Document Request System\\frmLogin.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-09-17T09:04:14.687Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmMainMenu.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\Tumal\\Downloads\\Case Study\\Registrar Document Request System\\Registrar Document Request System\\frmMainMenu.vb",
+              "RelativeDocumentMoniker": "Registrar Document Request System\\frmMainMenu.vb",
+              "ToolTip": "C:\\Users\\Tumal\\Downloads\\Case Study\\Registrar Document Request System\\Registrar Document Request System\\frmMainMenu.vb [Design]",
+              "RelativeToolTip": "Registrar Document Request System\\frmMainMenu.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-09-17T09:03:57.928Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 55,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
