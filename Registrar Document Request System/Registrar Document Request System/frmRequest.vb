@@ -56,24 +56,26 @@ Public Class frmRequest
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         If String.IsNullOrWhiteSpace(txtStudentID.Text) Then
-            MsgBox("Please enter a Student ID.", MsgBoxStyle.Exclamation, "Validation")
+            MsgBox("Please enter a Student No.", MsgBoxStyle.Exclamation, "Validation")
             Exit Sub
         End If
 
         Try
             connection()
-            sql = "SELECT FirstName, LastName, Course, YearLevel FROM tblstudents WHERE StudentID = @StudentID"
+            ' Searches by StudentNo or StudentID
+            sql = "SELECT StudentID, Firstname, Lastname, Course, YearLevel FROM tblstudents " &
+              "WHERE StudentNo = @SearchVal OR StudentID = @SearchVal"
             cmd = New MySqlCommand(sql, cn)
-            cmd.Parameters.AddWithValue("@StudentID", txtStudentID.Text.Trim())
+            cmd.Parameters.AddWithValue("@SearchVal", txtStudentID.Text.Trim())
 
             dr = cmd.ExecuteReader()
 
             If dr.Read() Then
-                txtStudentName.Text = dr("FirstName").ToString() & " " & dr("LastName").ToString()
+                txtStudentName.Text = dr("Firstname").ToString() & " " & dr("Lastname").ToString()
                 txtCourse.Text = dr("Course").ToString()
                 txtYearLevel.Text = dr("YearLevel").ToString()
             Else
-                MsgBox("Student ID not found.", MsgBoxStyle.Exclamation, "Search Result")
+                MsgBox("Student not found.", MsgBoxStyle.Exclamation, "Search Result")
                 txtStudentName.Text = ""
                 txtCourse.Text = ""
                 txtYearLevel.Text = ""

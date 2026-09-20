@@ -16,11 +16,13 @@ Public Class frmViewRequests
         Try
             connection()
 
-            sql = "SELECT r.RequestID, r.RequestNo, r.StudentID, CONCAT(s.FirstName, ' ', s.LastName) AS StudentName, " &
-                  "r.RequestDate, r.TotalAmount, r.PaymentStatus, r.Status " &
-                  "FROM tblrequest r " &
-                  "INNER JOIN tblstudents s ON r.StudentID = s.StudentID " &
-                  "ORDER BY r.RequestID DESC"
+            ' Match exact column names: Firstname and Lastname (no camelCase N)
+            sql = "SELECT r.RequestID, r.RequestNo, r.StudentID AS StudentNo, " &
+              "CONCAT(IFNULL(s.Firstname, ''), ' ', IFNULL(s.Lastname, '')) AS StudentName, " &
+              "r.RequestDate, r.TotalAmount, r.PaymentStatus, r.Status " &
+              "FROM tblrequest r " &
+              "LEFT JOIN tblstudents s ON TRIM(r.StudentID) = TRIM(s.StudentNo) " &
+              "ORDER BY r.RequestID DESC"
 
             cmd = New MySqlCommand(sql, cn)
             dr = cmd.ExecuteReader()
@@ -32,40 +34,43 @@ Public Class frmViewRequests
             dr.Close()
 
             If dgvRequests.Columns.Count > 0 Then
-                dgvRequests.Columns("RequestID").Visible = False
-                dgvRequests.Columns("RequestNo").HeaderText = "Request No"
-                dgvRequests.Columns("StudentID").HeaderText = "Student ID"
-                dgvRequests.Columns("StudentName").HeaderText = "Student Name"
-                dgvRequests.Columns("RequestDate").HeaderText = "Date"
-                dgvRequests.Columns("TotalAmount").HeaderText = "Total (P)"
-                dgvRequests.Columns("PaymentStatus").HeaderText = "Payment Status"
-                dgvRequests.Columns("Status").HeaderText = "Request Status"
+                If dgvRequests.Columns.Contains("RequestID") Then dgvRequests.Columns("RequestID").Visible = False
+                If dgvRequests.Columns.Contains("RequestNo") Then dgvRequests.Columns("RequestNo").HeaderText = "Request No"
+                If dgvRequests.Columns.Contains("StudentNo") Then dgvRequests.Columns("StudentNo").HeaderText = "Student No"
+                If dgvRequests.Columns.Contains("StudentName") Then dgvRequests.Columns("StudentName").HeaderText = "Student Name"
+                If dgvRequests.Columns.Contains("RequestDate") Then dgvRequests.Columns("RequestDate").HeaderText = "Date"
+                If dgvRequests.Columns.Contains("TotalAmount") Then dgvRequests.Columns("TotalAmount").HeaderText = "Total (P)"
+                If dgvRequests.Columns.Contains("PaymentStatus") Then dgvRequests.Columns("PaymentStatus").HeaderText = "Payment Status"
+                If dgvRequests.Columns.Contains("Status") Then dgvRequests.Columns("Status").HeaderText = "Request Status"
             End If
 
         Catch ex As Exception
-            MsgBox("Error loading requests: " & ex.Message, MsgBoxStyle.Critical)
+            MsgBox("Error loading requests: " & ex.Message, MsgBoxStyle.Critical, "Database Error")
         Finally
-            cn.Close()
+            If cn.State = ConnectionState.Open Then cn.Close()
         End Try
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        If txtSearch.Text = "" Then
-            MsgBox("Please enter a Request No or Student ID to search.", MsgBoxStyle.Exclamation)
+        If String.IsNullOrWhiteSpace(txtSearch.Text) Then
+            MsgBox("Please enter a Request No or Student No to search.", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
 
         Try
             connection()
 
-            sql = "SELECT r.RequestID, r.RequestNo, r.StudentID, CONCAT(s.FirstName, ' ', s.LastName) AS StudentName, " &
+            ' Updated search query to check s.StudentNo
+            sql = "SELECT r.RequestID, r.RequestNo, s.StudentNo, CONCAT(s.FirstName, ' ', s.LastName) AS StudentName, " &
                   "r.RequestDate, r.TotalAmount, r.PaymentStatus, r.Status " &
                   "FROM tblrequest r " &
                   "INNER JOIN tblstudents s ON r.StudentID = s.StudentID " &
-                  "WHERE r.RequestNo LIKE '%" & txtSearch.Text & "%' OR r.StudentID LIKE '%" & txtSearch.Text & "%' " &
+                  "WHERE r.RequestNo LIKE @Search OR s.StudentNo LIKE @Search " &
                   "ORDER BY r.RequestID DESC"
 
             cmd = New MySqlCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@Search", "%" & txtSearch.Text.Trim() & "%")
+
             dr = cmd.ExecuteReader()
 
             Dim dt As New DataTable()
@@ -77,7 +82,7 @@ Public Class frmViewRequests
         Catch ex As Exception
             MsgBox("Error searching requests: " & ex.Message, MsgBoxStyle.Critical)
         Finally
-            cn.Close()
+            If cn.State = ConnectionState.Open Then cn.Close()
         End Try
     End Sub
 
@@ -96,7 +101,7 @@ Public Class frmViewRequests
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        If txtSelectedReqNo.Text = "" Then
+        If String.IsNullOrWhiteSpace(txtSelectedReqNo.Text) Then
             MsgBox("Please select a request from the list first.", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
@@ -104,11 +109,13 @@ Public Class frmViewRequests
         Try
             connection()
 
-            sql = "UPDATE tblrequest SET PaymentStatus = '" & cboUpdatePayment.Text & "', " &
-                  "Status = '" & cboUpdateStatus.Text & "' " &
-                  "WHERE RequestNo = '" & txtSelectedReqNo.Text & "'"
+            sql = "UPDATE tblrequest SET PaymentStatus = @PaymentStatus, Status = @Status WHERE RequestNo = @RequestNo"
 
             cmd = New MySqlCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@PaymentStatus", cboUpdatePayment.Text)
+            cmd.Parameters.AddWithValue("@Status", cboUpdateStatus.Text)
+            cmd.Parameters.AddWithValue("@RequestNo", txtSelectedReqNo.Text.Trim())
+
             cmd.ExecuteNonQuery()
 
             MsgBox("Request status updated successfully!", MsgBoxStyle.Information)
@@ -121,7 +128,7 @@ Public Class frmViewRequests
         Catch ex As Exception
             MsgBox("Error updating status: " & ex.Message, MsgBoxStyle.Critical)
         Finally
-            cn.Close()
+            If cn.State = ConnectionState.Open Then cn.Close()
         End Try
     End Sub
 

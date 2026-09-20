@@ -56,9 +56,9 @@ Partial Class frmViewRequests
         Me.Label2.Font = New System.Drawing.Font("MS Reference Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(424, 80)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(288, 23)
+        Me.Label2.Size = New System.Drawing.Size(290, 23)
         Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Type: StudentID or RequestNo"
+        Me.Label2.Text = "Type: StudentNo or RequestNo"
         '
         'btnSearch
         '
