@@ -52,6 +52,7 @@ Partial Class frmStudents
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cboStatus = New System.Windows.Forms.ComboBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label11 = New System.Windows.Forms.Label()
         CType(Me.dgvStudents, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -120,7 +121,7 @@ Partial Class frmStudents
         'txtSearch
         '
         Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(228, 471)
+        Me.txtSearch.Location = New System.Drawing.Point(228, 477)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(404, 41)
         Me.txtSearch.TabIndex = 24
@@ -211,9 +212,11 @@ Partial Class frmStudents
         '
         'dgvStudents
         '
+        Me.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvStudents.Location = New System.Drawing.Point(25, 12)
         Me.dgvStudents.Name = "dgvStudents"
+        Me.dgvStudents.RowHeadersVisible = False
         Me.dgvStudents.RowHeadersWidth = 51
         Me.dgvStudents.RowTemplate.Height = 24
         Me.dgvStudents.Size = New System.Drawing.Size(1264, 387)
@@ -309,7 +312,7 @@ Partial Class frmStudents
         'txtSection
         '
         Me.txtSection.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSection.Location = New System.Drawing.Point(885, 471)
+        Me.txtSection.Location = New System.Drawing.Point(885, 477)
         Me.txtSection.Name = "txtSection"
         Me.txtSection.Size = New System.Drawing.Size(404, 41)
         Me.txtSection.TabIndex = 46
@@ -365,12 +368,25 @@ Partial Class frmStudents
         Me.PictureBox2.TabIndex = 51
         Me.PictureBox2.TabStop = False
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("MS Reference Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label11.Image = CType(resources.GetObject("Label11.Image"), System.Drawing.Image)
+        Me.Label11.Location = New System.Drawing.Point(224, 452)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(241, 23)
+        Me.Label11.TabIndex = 52
+        Me.Label11.Text = "Search by: Student no."
+        '
         'frmStudents
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkGoldenrod
         Me.ClientSize = New System.Drawing.Size(1515, 772)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.cboStatus)
         Me.Controls.Add(Me.txtContactNumber)
@@ -400,7 +416,7 @@ Partial Class frmStudents
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PictureBox2)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmStudents"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmStudents"
@@ -440,4 +456,5 @@ Partial Class frmStudents
     Friend WithEvents Label9 As Label
     Friend WithEvents cboStatus As ComboBox
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label11 As Label
 End Class

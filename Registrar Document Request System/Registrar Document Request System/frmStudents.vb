@@ -9,22 +9,50 @@ Public Class frmStudents
         cboStatus.Items.AddRange(New String() {"Enrolled", "Graduated", "Inactive"})
         cboStatus.SelectedIndex = 0
 
+        ' Check role and apply restrictions
+        ApplyRoleRestrictions()
+
         LoadStudents()
+    End Sub
+
+    Private Sub ApplyRoleRestrictions()
+        Dim userRole As String = frmLogin.LoggedInRole.Trim()
+
+        If userRole.Equals("Staff", StringComparison.OrdinalIgnoreCase) OrElse
+           userRole.Equals("Registrar Staff", StringComparison.OrdinalIgnoreCase) Then
+
+            ' Staff cannot edit Student No
+            txtStudentNo.ReadOnly = True
+            txtStudentNo.BackColor = Color.LightGray
+
+            ' Staff cannot delete student records
+            btnDelete.Enabled = False
+            btnDelete.BackColor = Color.Gray
+
+        ElseIf userRole.Equals("Admin", StringComparison.OrdinalIgnoreCase) Then
+            ' Admin has full access
+            txtStudentNo.ReadOnly = False
+            txtStudentNo.BackColor = Color.White
+            btnDelete.Enabled = True
+        End If
     End Sub
 
     Public Sub LoadStudents(Optional searchQuery As String = "")
         Try
             connection()
 
+            ' Parameterized query for safe searching
             sql = "SELECT StudentID, StudentNo, Firstname, Middlename, Lastname, Course, YearLevel, Section, Contactnumber, Status FROM tblstudents "
-            If searchQuery <> "" Then
-                sql &= "WHERE StudentNo LIKE '%" & searchQuery & "%' " &
-                       "OR Firstname LIKE '%" & searchQuery & "%' " &
-                       "OR Lastname LIKE '%" & searchQuery & "%' "
+            If Not String.IsNullOrWhiteSpace(searchQuery) Then
+                sql &= "WHERE StudentNo LIKE @Search OR Firstname LIKE @Search OR Lastname LIKE @Search "
             End If
             sql &= "ORDER BY StudentID DESC"
 
             cmd = New MySqlCommand(sql, cn)
+            If Not String.IsNullOrWhiteSpace(searchQuery) Then
+                cmd.Parameters.AddWithValue("@Search", "%" & searchQuery & "%")
+            End If
+
             dr = cmd.ExecuteReader()
 
             Dim dt As New DataTable()
@@ -45,6 +73,10 @@ Public Class frmStudents
                 dgvStudents.Columns("Contactnumber").HeaderText = "Contact Number"
                 dgvStudents.Columns("Status").HeaderText = "Status"
             End If
+
+            ' Grid Formatting
+            dgvStudents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            dgvStudents.RowHeadersVisible = False
 
         Catch ex As Exception
             MsgBox("Error loading student records: " & ex.Message, MsgBoxStyle.Critical, "Database Error")
@@ -118,6 +150,7 @@ Public Class frmStudents
         Try
             connection()
 
+            ' Staff keeps the original StudentNo intact during updates
             sql = "UPDATE tblstudents SET StudentNo = @StudentNo, Firstname = @FirstName, " &
                   "Middlename = @MiddleName, Lastname = @LastName, " &
                   "Course = @Course, YearLevel = @YearLevel, Section = @Section, " &
@@ -150,6 +183,12 @@ Public Class frmStudents
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        ' Guard check for non-Admin users
+        If Not frmLogin.LoggedInRole.Equals("Admin", StringComparison.OrdinalIgnoreCase) Then
+            MsgBox("Access Denied: Only Administrators are allowed to delete student records.", MsgBoxStyle.Exclamation, "Access Restricted")
+            Exit Sub
+        End If
+
         If SelectedStudentID = 0 Then
             MsgBox("Please select a student from the table list to delete.", MsgBoxStyle.Exclamation, "Validation")
             Exit Sub
@@ -193,7 +232,7 @@ Public Class frmStudents
         cboYearLevel.SelectedIndex = -1
         txtSection.Text = ""
         txtContactNumber.Text = ""
-        cboStatus.SelectedIndex = -1
+        cboStatus.SelectedIndex = 0
         txtSearch.Text = ""
     End Sub
 

@@ -52,3 +52,4 @@ C:\Users\Tumal\source\repos\CASE_STUDY_INTEGRATIVE_PROGRAMMING\Registrar Documen
 C:\Users\Tumal\source\repos\CASE_STUDY_INTEGRATIVE_PROGRAMMING\Registrar Document Request System\Registrar Document Request System\obj\Debug\Registrar.exe
 C:\Users\Tumal\source\repos\CASE_STUDY_INTEGRATIVE_PROGRAMMING\Registrar Document Request System\Registrar Document Request System\obj\Debug\Registrar.xml
 C:\Users\Tumal\source\repos\CASE_STUDY_INTEGRATIVE_PROGRAMMING\Registrar Document Request System\Registrar Document Request System\obj\Debug\Registrar.pdb
+C:\Users\Tumal\source\repos\CASE_STUDY_INTEGRATIVE_PROGRAMMING\Registrar Document Request System\Registrar Document Request System\obj\Debug\Registrar_Document_Request_System.frmUsers.resources

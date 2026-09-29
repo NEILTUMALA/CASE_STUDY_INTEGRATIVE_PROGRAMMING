@@ -62,9 +62,8 @@ Public Class frmRequest
 
         Try
             connection()
-            ' Searches by StudentNo or StudentID
             sql = "SELECT StudentID, Firstname, Lastname, Course, YearLevel FROM tblstudents " &
-              "WHERE StudentNo = @SearchVal OR StudentID = @SearchVal"
+                  "WHERE StudentNo = @SearchVal OR StudentID = @SearchVal"
             cmd = New MySqlCommand(sql, cn)
             cmd.Parameters.AddWithValue("@SearchVal", txtStudentID.Text.Trim())
 
@@ -129,11 +128,18 @@ Public Class frmRequest
             Exit Sub
         End If
 
+        If String.IsNullOrWhiteSpace(txtReason.Text) Then
+            MsgBox("Please specify a Reason for request.", MsgBoxStyle.Exclamation, "Validation")
+            txtReason.Focus()
+            Exit Sub
+        End If
+
         Try
             connection()
 
-            sql = "INSERT INTO tblrequest (RequestNo, StudentID, RequestDate, TotalAmount, PaymentStatus, Status, CreatedBy) " &
-                  "VALUES (@RequestNo, @StudentID, @RequestDate, @TotalAmount, @PaymentStatus, @Status, @CreatedBy)"
+            ' Included Reason field in the INSERT query
+            sql = "INSERT INTO tblrequest (RequestNo, StudentID, RequestDate, TotalAmount, PaymentStatus, Status, Reason, CreatedBy) " &
+                  "VALUES (@RequestNo, @StudentID, @RequestDate, @TotalAmount, @PaymentStatus, @Status, @Reason, @CreatedBy)"
             cmd = New MySqlCommand(sql, cn)
             cmd.Parameters.AddWithValue("@RequestNo", txtRequestNo.Text)
             cmd.Parameters.AddWithValue("@StudentID", txtStudentID.Text.Trim())
@@ -141,6 +147,7 @@ Public Class frmRequest
             cmd.Parameters.AddWithValue("@TotalAmount", txtTotalAmount.Text)
             cmd.Parameters.AddWithValue("@PaymentStatus", cboPaymentStatus.Text)
             cmd.Parameters.AddWithValue("@Status", cboRequestStatus.Text)
+            cmd.Parameters.AddWithValue("@Reason", txtReason.Text.Trim())
             cmd.Parameters.AddWithValue("@CreatedBy", If(frmLogin.LoggedInUserID > 0, frmLogin.LoggedInUserID, 1))
 
             cmd.ExecuteNonQuery()
@@ -169,6 +176,7 @@ Public Class frmRequest
             cmbDocument.SelectedIndex = -1
             txtAmount.Text = ""
             txtTotalAmount.Text = ""
+            txtReason.Text = ""
             numQuantity.Value = 1
             SelectedDocID = 0
             SelectedDocFee = 0.00
@@ -192,7 +200,7 @@ Public Class frmRequest
         End Using
     End Sub
 
-    ' Receipt Layout & Graphics Design
+    ' Receipt Layout including Reason line
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
         Dim fontTitle As New Font("Arial", 16, FontStyle.Bold)
         Dim fontHeader As New Font("Arial", 12, FontStyle.Bold)
@@ -206,7 +214,7 @@ Public Class frmRequest
         e.Graphics.DrawString("Registrar Document Request Receipt", fontHeader, Brushes.Black, startX, startY + 30)
         e.Graphics.DrawString("------------------------------------------------------------------", fontBody, Brushes.Black, startX, startY + 50)
 
-        ' Details
+        ' Student Details
         e.Graphics.DrawString("Request No: " & txtRequestNo.Text, fontBody, Brushes.Black, startX, startY + 70)
         e.Graphics.DrawString("Date: " & dtpRequestDate.Value.ToString("yyyy-MM-dd"), fontBody, Brushes.Black, startX, startY + 90)
         e.Graphics.DrawString("Student Name: " & txtStudentName.Text, fontBody, Brushes.Black, startX, startY + 110)
@@ -214,16 +222,16 @@ Public Class frmRequest
 
         e.Graphics.DrawString("------------------------------------------------------------------", fontBody, Brushes.Black, startX, startY + 150)
 
-        ' Items
+        ' Document Details & Reason
         e.Graphics.DrawString("Document: " & cmbDocument.Text, fontBody, Brushes.Black, startX, startY + 170)
-        e.Graphics.DrawString("Unit Price: P " & txtAmount.Text, fontBody, Brushes.Black, startX, startY + 190)
-        e.Graphics.DrawString("Quantity: " & numQuantity.Value.ToString(), fontBody, Brushes.Black, startX, startY + 210)
-        e.Graphics.DrawString("Total Amount: P " & txtTotalAmount.Text, fontHeader, Brushes.Black, startX, startY + 230)
+        e.Graphics.DrawString("Reason: " & txtReason.Text, fontBody, Brushes.Black, startX, startY + 190)
+        e.Graphics.DrawString("Unit Price: P " & txtAmount.Text, fontBody, Brushes.Black, startX, startY + 210)
+        e.Graphics.DrawString("Quantity: " & numQuantity.Value.ToString(), fontBody, Brushes.Black, startX, startY + 230)
+        e.Graphics.DrawString("Total Amount: P " & txtTotalAmount.Text, fontHeader, Brushes.Black, startX, startY + 250)
 
-        e.Graphics.DrawString("------------------------------------------------------------------", fontBody, Brushes.Black, startX, startY + 250)
+        e.Graphics.DrawString("------------------------------------------------------------------", fontBody, Brushes.Black, startX, startY + 270)
 
         ' Footer
-        e.Graphics.DrawString("Payment Status: " & cboPaymentStatus.Text, fontBody, Brushes.Black, startX, startY + 270)
         e.Graphics.DrawString("Processed By: " & txtProcessed.Text, fontBody, Brushes.Black, startX, startY + 290)
         e.Graphics.DrawString("Thank you!", fontHeader, Brushes.Black, startX + 100, startY + 330)
     End Sub

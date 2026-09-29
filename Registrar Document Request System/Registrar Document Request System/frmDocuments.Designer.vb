@@ -39,6 +39,8 @@ Partial Class frmDocuments
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.dgvDocuments, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,6 +84,7 @@ Partial Class frmDocuments
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(404, 41)
         Me.txtSearch.TabIndex = 23
+        Me.txtSearch.Tag = ""
         '
         'Label1
         '
@@ -179,12 +182,14 @@ Partial Class frmDocuments
         '
         'dgvDocuments
         '
+        Me.dgvDocuments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvDocuments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvDocuments.Location = New System.Drawing.Point(18, 12)
+        Me.dgvDocuments.Location = New System.Drawing.Point(6, 12)
         Me.dgvDocuments.Name = "dgvDocuments"
+        Me.dgvDocuments.RowHeadersVisible = False
         Me.dgvDocuments.RowHeadersWidth = 51
         Me.dgvDocuments.RowTemplate.Height = 24
-        Me.dgvDocuments.Size = New System.Drawing.Size(472, 739)
+        Me.dgvDocuments.Size = New System.Drawing.Size(507, 739)
         Me.dgvDocuments.TabIndex = 32
         '
         'PictureBox1
@@ -220,12 +225,37 @@ Partial Class frmDocuments
         Me.PictureBox2.TabIndex = 35
         Me.PictureBox2.TabStop = False
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label4.Image = CType(resources.GetObject("Label4.Image"), System.Drawing.Image)
+        Me.Label4.Location = New System.Drawing.Point(767, 191)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(0, 35)
+        Me.Label4.TabIndex = 36
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("MS Reference Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label5.Image = CType(resources.GetObject("Label5.Image"), System.Drawing.Image)
+        Me.Label5.Location = New System.Drawing.Point(718, 191)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(278, 22)
+        Me.Label5.TabIndex = 37
+        Me.Label5.Text = "Search by: Document Name"
+        '
         'frmDocuments
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkGoldenrod
         Me.ClientSize = New System.Drawing.Size(1073, 766)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.dgvDocuments)
@@ -242,7 +272,7 @@ Partial Class frmDocuments
         Me.Controls.Add(Me.txtDocumentName)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PictureBox2)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmDocuments"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmDocuments"
@@ -270,4 +300,6 @@ Partial Class frmDocuments
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents btnDelete As Button
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
 End Class

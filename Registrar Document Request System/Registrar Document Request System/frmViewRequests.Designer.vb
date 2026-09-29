@@ -86,9 +86,11 @@ Partial Class frmViewRequests
         '
         'dgvRequests
         '
+        Me.dgvRequests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvRequests.Location = New System.Drawing.Point(24, 135)
+        Me.dgvRequests.Location = New System.Drawing.Point(24, 122)
         Me.dgvRequests.Name = "dgvRequests"
+        Me.dgvRequests.RowHeadersVisible = False
         Me.dgvRequests.RowHeadersWidth = 51
         Me.dgvRequests.RowTemplate.Height = 24
         Me.dgvRequests.Size = New System.Drawing.Size(1007, 603)
@@ -225,7 +227,7 @@ Partial Class frmViewRequests
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.PictureBox1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmViewRequests"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmViewRequest"
