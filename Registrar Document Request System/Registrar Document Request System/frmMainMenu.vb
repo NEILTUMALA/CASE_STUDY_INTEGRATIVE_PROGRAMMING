@@ -8,6 +8,7 @@ Public Class frmMainMenu
         lblEmployeeName.Text = "Employee Name: " & frmLogin.LoggedInFullName
         lblPosition.Text = "Position: " & frmLogin.LoggedInRole
         lblDate.Text = "Today Is: " & DateTime.Now.ToString("MMMM dd, yyyy")
+        lblTime.Text = "Current Time: " & DateTime.Now.ToString("hh:mm tt")
 
         ApplyRolePermissions()
     End Sub

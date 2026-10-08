@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmMainMenu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class frmMainMenu
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -38,8 +39,13 @@ Partial Class frmMainMenu
         Me.lblUsername = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.dgvRecentRequests = New System.Windows.Forms.DataGridView()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.tmrClock = New System.Windows.Forms.Timer(Me.components)
+        Me.lblTime = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvRecentRequests, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label5
@@ -47,9 +53,10 @@ Partial Class frmMainMenu
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft YaHei", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label5.Location = New System.Drawing.Point(450, 248)
+        Me.Label5.Location = New System.Drawing.Point(15, 200)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(433, 37)
+        Me.Label5.Size = New System.Drawing.Size(341, 30)
         Me.Label5.TabIndex = 13
         Me.Label5.Text = "Registrar Information System"
         '
@@ -58,9 +65,10 @@ Partial Class frmMainMenu
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft New Tai Lue", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label4.Location = New System.Drawing.Point(524, 208)
+        Me.Label4.Location = New System.Drawing.Point(70, 167)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(264, 31)
+        Me.Label4.Size = New System.Drawing.Size(217, 25)
         Me.Label4.TabIndex = 12
         Me.Label4.Text = "km 30. Road Muntinlupa"
         '
@@ -69,9 +77,10 @@ Partial Class frmMainMenu
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label3.Location = New System.Drawing.Point(511, 168)
+        Me.Label3.Location = New System.Drawing.Point(60, 134)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(306, 40)
+        Me.Label3.Size = New System.Drawing.Size(248, 31)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Lyceum of Alabang"
         '
@@ -80,9 +89,10 @@ Partial Class frmMainMenu
         Me.btnDocumentManagement.BackColor = System.Drawing.Color.Goldenrod
         Me.btnDocumentManagement.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDocumentManagement.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnDocumentManagement.Location = New System.Drawing.Point(210, 327)
+        Me.btnDocumentManagement.Location = New System.Drawing.Point(66, 274)
+        Me.btnDocumentManagement.Margin = New System.Windows.Forms.Padding(2)
         Me.btnDocumentManagement.Name = "btnDocumentManagement"
-        Me.btnDocumentManagement.Size = New System.Drawing.Size(308, 88)
+        Me.btnDocumentManagement.Size = New System.Drawing.Size(231, 72)
         Me.btnDocumentManagement.TabIndex = 14
         Me.btnDocumentManagement.Text = "Document Management"
         Me.btnDocumentManagement.UseVisualStyleBackColor = False
@@ -92,9 +102,10 @@ Partial Class frmMainMenu
         Me.btnDocumentRequests.BackColor = System.Drawing.Color.Goldenrod
         Me.btnDocumentRequests.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDocumentRequests.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnDocumentRequests.Location = New System.Drawing.Point(348, 440)
+        Me.btnDocumentRequests.Location = New System.Drawing.Point(66, 446)
+        Me.btnDocumentRequests.Margin = New System.Windows.Forms.Padding(2)
         Me.btnDocumentRequests.Name = "btnDocumentRequests"
-        Me.btnDocumentRequests.Size = New System.Drawing.Size(308, 88)
+        Me.btnDocumentRequests.Size = New System.Drawing.Size(231, 72)
         Me.btnDocumentRequests.TabIndex = 15
         Me.btnDocumentRequests.Text = "Document Requests "
         Me.btnDocumentRequests.UseVisualStyleBackColor = False
@@ -104,9 +115,10 @@ Partial Class frmMainMenu
         Me.btnReports.BackColor = System.Drawing.Color.Goldenrod
         Me.btnReports.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReports.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnReports.Location = New System.Drawing.Point(692, 440)
+        Me.btnReports.Location = New System.Drawing.Point(66, 531)
+        Me.btnReports.Margin = New System.Windows.Forms.Padding(2)
         Me.btnReports.Name = "btnReports"
-        Me.btnReports.Size = New System.Drawing.Size(308, 88)
+        Me.btnReports.Size = New System.Drawing.Size(231, 72)
         Me.btnReports.TabIndex = 16
         Me.btnReports.Text = "Reports"
         Me.btnReports.UseVisualStyleBackColor = False
@@ -116,9 +128,10 @@ Partial Class frmMainMenu
         Me.btnStudentManagement.BackColor = System.Drawing.Color.Goldenrod
         Me.btnStudentManagement.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStudentManagement.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnStudentManagement.Location = New System.Drawing.Point(545, 327)
+        Me.btnStudentManagement.Location = New System.Drawing.Point(66, 360)
+        Me.btnStudentManagement.Margin = New System.Windows.Forms.Padding(2)
         Me.btnStudentManagement.Name = "btnStudentManagement"
-        Me.btnStudentManagement.Size = New System.Drawing.Size(308, 88)
+        Me.btnStudentManagement.Size = New System.Drawing.Size(231, 72)
         Me.btnStudentManagement.TabIndex = 17
         Me.btnStudentManagement.Text = "Student Management"
         Me.btnStudentManagement.UseVisualStyleBackColor = False
@@ -128,21 +141,23 @@ Partial Class frmMainMenu
         Me.btnUserManagement.BackColor = System.Drawing.Color.Goldenrod
         Me.btnUserManagement.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUserManagement.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnUserManagement.Location = New System.Drawing.Point(880, 327)
+        Me.btnUserManagement.Location = New System.Drawing.Point(66, 616)
+        Me.btnUserManagement.Margin = New System.Windows.Forms.Padding(2)
         Me.btnUserManagement.Name = "btnUserManagement"
-        Me.btnUserManagement.Size = New System.Drawing.Size(308, 88)
+        Me.btnUserManagement.Size = New System.Drawing.Size(231, 72)
         Me.btnUserManagement.TabIndex = 18
         Me.btnUserManagement.Text = "User Management"
         Me.btnUserManagement.UseVisualStyleBackColor = False
         '
         'btnLogout
         '
-        Me.btnLogout.BackColor = System.Drawing.SystemColors.Desktop
+        Me.btnLogout.BackColor = System.Drawing.Color.Red
         Me.btnLogout.Font = New System.Drawing.Font("Microsoft YaHei", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnLogout.Location = New System.Drawing.Point(1099, 600)
+        Me.btnLogout.Location = New System.Drawing.Point(1207, 759)
+        Me.btnLogout.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(259, 59)
+        Me.btnLogout.Size = New System.Drawing.Size(194, 55)
         Me.btnLogout.TabIndex = 20
         Me.btnLogout.Text = "LOGOUT"
         Me.btnLogout.UseVisualStyleBackColor = False
@@ -153,9 +168,10 @@ Partial Class frmMainMenu
         Me.lblDate.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDate.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblDate.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
-        Me.lblDate.Location = New System.Drawing.Point(455, 597)
+        Me.lblDate.Location = New System.Drawing.Point(478, 749)
+        Me.lblDate.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblDate.Name = "lblDate"
-        Me.lblDate.Size = New System.Drawing.Size(131, 28)
+        Me.lblDate.Size = New System.Drawing.Size(111, 24)
         Me.lblDate.TabIndex = 25
         Me.lblDate.Text = "Today Is:"
         '
@@ -165,9 +181,10 @@ Partial Class frmMainMenu
         Me.lblEmployeeName.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEmployeeName.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblEmployeeName.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
-        Me.lblEmployeeName.Location = New System.Drawing.Point(455, 631)
+        Me.lblEmployeeName.Location = New System.Drawing.Point(478, 790)
+        Me.lblEmployeeName.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblEmployeeName.Name = "lblEmployeeName"
-        Me.lblEmployeeName.Size = New System.Drawing.Size(224, 28)
+        Me.lblEmployeeName.Size = New System.Drawing.Size(187, 24)
         Me.lblEmployeeName.TabIndex = 24
         Me.lblEmployeeName.Text = "Employee Name:"
         '
@@ -177,9 +194,10 @@ Partial Class frmMainMenu
         Me.lblPosition.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPosition.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lblPosition.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
-        Me.lblPosition.Location = New System.Drawing.Point(12, 631)
+        Me.lblPosition.Location = New System.Drawing.Point(11, 790)
+        Me.lblPosition.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPosition.Name = "lblPosition"
-        Me.lblPosition.Size = New System.Drawing.Size(121, 28)
+        Me.lblPosition.Size = New System.Drawing.Size(104, 24)
         Me.lblPosition.TabIndex = 23
         Me.lblPosition.Text = "Position:"
         '
@@ -190,9 +208,10 @@ Partial Class frmMainMenu
         Me.lblUsername.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUsername.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblUsername.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
-        Me.lblUsername.Location = New System.Drawing.Point(12, 597)
+        Me.lblUsername.Location = New System.Drawing.Point(11, 749)
+        Me.lblUsername.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblUsername.Name = "lblUsername"
-        Me.lblUsername.Size = New System.Drawing.Size(149, 28)
+        Me.lblUsername.Size = New System.Drawing.Size(123, 24)
         Me.lblUsername.TabIndex = 22
         Me.lblUsername.Text = "Username:"
         '
@@ -200,9 +219,10 @@ Partial Class frmMainMenu
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.Registrar_Document_Request_System.My.Resources.Resources.logo
-        Me.PictureBox1.Location = New System.Drawing.Point(530, 28)
+        Me.PictureBox1.Location = New System.Drawing.Point(75, 21)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(278, 133)
+        Me.PictureBox1.Size = New System.Drawing.Size(208, 108)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 10
         Me.PictureBox1.TabStop = False
@@ -210,18 +230,55 @@ Partial Class frmMainMenu
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
-        Me.PictureBox2.Location = New System.Drawing.Point(-6, 583)
+        Me.PictureBox2.Location = New System.Drawing.Point(-5, 727)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(1378, 87)
+        Me.PictureBox2.Size = New System.Drawing.Size(1437, 121)
         Me.PictureBox2.TabIndex = 21
         Me.PictureBox2.TabStop = False
         '
+        'dgvRecentRequests
+        '
+        Me.dgvRecentRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvRecentRequests.Location = New System.Drawing.Point(384, 57)
+        Me.dgvRecentRequests.Name = "dgvRecentRequests"
+        Me.dgvRecentRequests.Size = New System.Drawing.Size(1017, 414)
+        Me.dgvRecentRequests.TabIndex = 26
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label1.Location = New System.Drawing.Point(379, 24)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(297, 30)
+        Me.Label1.TabIndex = 27
+        Me.Label1.Text = "Recent Request Overview"
+        '
+        'lblTime
+        '
+        Me.lblTime.AutoSize = True
+        Me.lblTime.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTime.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.lblTime.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
+        Me.lblTime.Location = New System.Drawing.Point(820, 749)
+        Me.lblTime.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblTime.Name = "lblTime"
+        Me.lblTime.Size = New System.Drawing.Size(71, 24)
+        Me.lblTime.TabIndex = 28
+        Me.lblTime.Text = "Time:"
+        '
         'frmMainMenu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Goldenrod
-        Me.ClientSize = New System.Drawing.Size(1370, 668)
+        Me.ClientSize = New System.Drawing.Size(1424, 836)
+        Me.Controls.Add(Me.lblTime)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.dgvRecentRequests)
         Me.Controls.Add(Me.lblDate)
         Me.Controls.Add(Me.lblEmployeeName)
         Me.Controls.Add(Me.lblPosition)
@@ -238,11 +295,13 @@ Partial Class frmMainMenu
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.PictureBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frmMainMenu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmMainMenu"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvRecentRequests, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -264,4 +323,8 @@ Partial Class frmMainMenu
     Friend WithEvents lblDate As Label
     Friend WithEvents lblEmployeeName As Label
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents dgvRecentRequests As DataGridView
+    Friend WithEvents Label1 As Label
+    Friend WithEvents tmrClock As Timer
+    Friend WithEvents lblTime As Label
 End Class

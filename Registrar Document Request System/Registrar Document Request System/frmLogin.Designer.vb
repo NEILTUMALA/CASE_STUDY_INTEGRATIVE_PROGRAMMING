@@ -43,9 +43,10 @@ Partial Class frmLogin
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft YaHei", 25.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label5.Location = New System.Drawing.Point(125, 409)
+        Me.Label5.Location = New System.Drawing.Point(94, 332)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(664, 57)
+        Me.Label5.Size = New System.Drawing.Size(538, 46)
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Registrar Information System"
         '
@@ -54,9 +55,10 @@ Partial Class frmLogin
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft YaHei", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label4.Location = New System.Drawing.Point(199, 319)
+        Me.Label4.Location = New System.Drawing.Point(149, 259)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(493, 37)
+        Me.Label4.Size = New System.Drawing.Size(393, 30)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "km 30. National Road Muntinlupa"
         '
@@ -65,9 +67,10 @@ Partial Class frmLogin
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft YaHei", 25.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label3.Location = New System.Drawing.Point(226, 262)
+        Me.Label3.Location = New System.Drawing.Point(170, 213)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(443, 57)
+        Me.Label3.Size = New System.Drawing.Size(356, 46)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Lyceum of Alabang"
         '
@@ -75,9 +78,10 @@ Partial Class frmLogin
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.Registrar_Document_Request_System.My.Resources.Resources.logo
-        Me.PictureBox1.Location = New System.Drawing.Point(257, 44)
+        Me.PictureBox1.Location = New System.Drawing.Point(193, 36)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(373, 210)
+        Me.PictureBox1.Size = New System.Drawing.Size(280, 171)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 14
         Me.PictureBox1.TabStop = False
@@ -87,9 +91,10 @@ Partial Class frmLogin
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft YaHei", 25.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label1.Location = New System.Drawing.Point(247, 562)
+        Me.Label1.Location = New System.Drawing.Point(185, 457)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(236, 56)
+        Me.Label1.Size = New System.Drawing.Size(192, 45)
         Me.Label1.TabIndex = 18
         Me.Label1.Text = "Username"
         '
@@ -98,26 +103,30 @@ Partial Class frmLogin
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft YaHei", 25.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label2.Location = New System.Drawing.Point(247, 684)
+        Me.Label2.Location = New System.Drawing.Point(185, 556)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(228, 56)
+        Me.Label2.Size = New System.Drawing.Size(184, 45)
         Me.Label2.TabIndex = 19
         Me.Label2.Text = "Password"
         '
         'txtUsername
         '
         Me.txtUsername.Font = New System.Drawing.Font("Microsoft YaHei", 25.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUsername.Location = New System.Drawing.Point(257, 621)
+        Me.txtUsername.Location = New System.Drawing.Point(193, 505)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(2)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(433, 63)
+        Me.txtUsername.Size = New System.Drawing.Size(326, 52)
         Me.txtUsername.TabIndex = 20
         '
         'txtPassword
         '
         Me.txtPassword.Font = New System.Drawing.Font("Microsoft YaHei", 25.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPassword.Location = New System.Drawing.Point(257, 743)
+        Me.txtPassword.Location = New System.Drawing.Point(193, 604)
+        Me.txtPassword.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(433, 63)
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtPassword.Size = New System.Drawing.Size(326, 52)
         Me.txtPassword.TabIndex = 21
         '
         'btnLogin
@@ -125,21 +134,23 @@ Partial Class frmLogin
         Me.btnLogin.BackColor = System.Drawing.Color.SteelBlue
         Me.btnLogin.Font = New System.Drawing.Font("Microsoft YaHei", 25.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnLogin.Location = New System.Drawing.Point(282, 860)
+        Me.btnLogin.Location = New System.Drawing.Point(212, 699)
+        Me.btnLogin.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(183, 75)
+        Me.btnLogin.Size = New System.Drawing.Size(137, 61)
         Me.btnLogin.TabIndex = 22
         Me.btnLogin.Text = "Login"
         Me.btnLogin.UseVisualStyleBackColor = False
         '
         'btnClose
         '
-        Me.btnClose.BackColor = System.Drawing.SystemColors.Desktop
+        Me.btnClose.BackColor = System.Drawing.Color.Red
         Me.btnClose.Font = New System.Drawing.Font("Microsoft YaHei", 25.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnClose.Location = New System.Drawing.Point(494, 860)
+        Me.btnClose.Location = New System.Drawing.Point(370, 699)
+        Me.btnClose.Margin = New System.Windows.Forms.Padding(2)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(183, 75)
+        Me.btnClose.Size = New System.Drawing.Size(137, 61)
         Me.btnClose.TabIndex = 23
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = False
@@ -151,9 +162,10 @@ Partial Class frmLogin
         Me.Label6.Font = New System.Drawing.Font("Microsoft YaHei", 25.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label6.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
-        Me.Label6.Location = New System.Drawing.Point(875, 288)
+        Me.Label6.Location = New System.Drawing.Point(656, 234)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(901, 285)
+        Me.Label6.Size = New System.Drawing.Size(723, 230)
         Me.Label6.TabIndex = 25
         Me.Label6.Text = "                          Lyceum of Alabang" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "              Innovative and Fast " &
     "transaction," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                   Easy to request document, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                   " &
@@ -162,18 +174,19 @@ Partial Class frmLogin
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
-        Me.PictureBox2.Location = New System.Drawing.Point(872, -6)
+        Me.PictureBox2.Location = New System.Drawing.Point(654, -5)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(1026, 1040)
+        Me.PictureBox2.Size = New System.Drawing.Size(770, 845)
         Me.PictureBox2.TabIndex = 26
         Me.PictureBox2.TabStop = False
         '
         'frmLogin
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Goldenrod
-        Me.ClientSize = New System.Drawing.Size(1898, 1029)
+        Me.ClientSize = New System.Drawing.Size(1424, 836)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnLogin)
@@ -188,6 +201,7 @@ Partial Class frmLogin
         Me.Controls.Add(Me.PictureBox2)
         Me.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmLogin"
