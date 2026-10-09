@@ -123,7 +123,7 @@ Public Class frmRequest
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If String.IsNullOrWhiteSpace(txtStudentName.Text) Or String.IsNullOrEmpty(cmbDocument.Text) Then
+        If String.IsNullOrWhiteSpace(txtStudentName.Text) OrElse String.IsNullOrWhiteSpace(cmbDocument.Text) Then
             MsgBox("Please complete student search and document selection first.", MsgBoxStyle.Exclamation, "Validation")
             Exit Sub
         End If
@@ -137,12 +137,27 @@ Public Class frmRequest
         Try
             connection()
 
-            ' Included Reason field in the INSERT query
-            sql = "INSERT INTO tblrequest (RequestNo, StudentID, RequestDate, TotalAmount, PaymentStatus, Status, Reason, CreatedBy) " &
-                  "VALUES (@RequestNo, @StudentID, @RequestDate, @TotalAmount, @PaymentStatus, @Status, @Reason, @CreatedBy)"
+            ' Robust document name capture
+            Dim docName As String = ""
+            If cmbDocument.SelectedIndex >= 0 Then
+                docName = cmbDocument.Items(cmbDocument.SelectedIndex).ToString()
+            Else
+                docName = cmbDocument.Text.Trim()
+            End If
+
+            ' Verify document name is not empty
+            If String.IsNullOrEmpty(docName) Then
+                MsgBox("Please select a valid Document Name.", MsgBoxStyle.Exclamation, "Validation")
+                Exit Sub
+            End If
+
+            sql = "INSERT INTO tblrequest (RequestNo, StudentID, document_type, RequestDate, TotalAmount, PaymentStatus, Status, Reason, CreatedBy) " &
+              "VALUES (@RequestNo, @StudentID, @document_type, @RequestDate, @TotalAmount, @PaymentStatus, @Status, @Reason, @CreatedBy)"
+
             cmd = New MySqlCommand(sql, cn)
             cmd.Parameters.AddWithValue("@RequestNo", txtRequestNo.Text)
             cmd.Parameters.AddWithValue("@StudentID", txtStudentID.Text.Trim())
+            cmd.Parameters.AddWithValue("@document_type", docName) ' Always passes exact text name
             cmd.Parameters.AddWithValue("@RequestDate", dtpRequestDate.Value.ToString("yyyy-MM-dd HH:mm:ss"))
             cmd.Parameters.AddWithValue("@TotalAmount", txtTotalAmount.Text)
             cmd.Parameters.AddWithValue("@PaymentStatus", cboPaymentStatus.Text)
@@ -154,8 +169,9 @@ Public Class frmRequest
 
             Dim newRequestID As Long = cmd.LastInsertedId
 
+            ' Insert into tblrequestdetails
             sql = "INSERT INTO tblrequestdetails (RequestID, DocumentID, Quantity, Amount, SubTotal) " &
-                  "VALUES (@RequestID, @DocumentID, @Quantity, @Amount, @SubTotal)"
+              "VALUES (@RequestID, @DocumentID, @Quantity, @Amount, @SubTotal)"
             cmd = New MySqlCommand(sql, cn)
             cmd.Parameters.AddWithValue("@RequestID", newRequestID)
             cmd.Parameters.AddWithValue("@DocumentID", SelectedDocID)
@@ -180,6 +196,14 @@ Public Class frmRequest
             numQuantity.Value = 1
             SelectedDocID = 0
             SelectedDocFee = 0.00
+
+            ' Refresh Dashboard DataGridView & Metrics
+            If Application.OpenForms("frmMainMenu") IsNot Nothing Then
+                CType(Application.OpenForms("frmMainMenu"), frmMainMenu).loadRecentRequests()
+                CType(Application.OpenForms("frmMainMenu"), frmMainMenu).LoadDashboardMetrics()
+            End If
+
+            Me.Close()
 
         Catch ex As Exception
             MsgBox("Error saving request: " & ex.Message, MsgBoxStyle.Critical, "Database Error")
