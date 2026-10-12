@@ -22,7 +22,6 @@ Partial Class frmStudents
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStudents))
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -61,43 +60,43 @@ Partial Class frmStudents
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.BackColor = System.Drawing.Color.DarkBlue
+        Me.Label3.Font = New System.Drawing.Font("MS Reference Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Image = CType(resources.GetObject("Label3.Image"), System.Drawing.Image)
-        Me.Label3.Location = New System.Drawing.Point(23, 599)
+        Me.Label3.Location = New System.Drawing.Point(60, 667)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(158, 28)
+        Me.Label3.Size = New System.Drawing.Size(194, 35)
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "First Name:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.BackColor = System.Drawing.Color.DarkBlue
+        Me.Label2.Font = New System.Drawing.Font("MS Reference Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Image = CType(resources.GetObject("Label2.Image"), System.Drawing.Image)
-        Me.Label2.Location = New System.Drawing.Point(23, 542)
+        Me.Label2.Location = New System.Drawing.Point(60, 576)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(164, 28)
+        Me.Label2.Size = New System.Drawing.Size(198, 35)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Student No:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.BackColor = System.Drawing.Color.DarkBlue
+        Me.Label1.Font = New System.Drawing.Font("MS Reference Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Image = CType(resources.GetObject("Label1.Image"), System.Drawing.Image)
-        Me.Label1.Location = New System.Drawing.Point(23, 655)
+        Me.Label1.Location = New System.Drawing.Point(60, 764)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(182, 28)
+        Me.Label1.Size = New System.Drawing.Size(225, 35)
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Middle Name:"
         '
         'txtStudentNo
         '
         Me.txtStudentNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtStudentNo.Location = New System.Drawing.Point(228, 533)
+        Me.txtStudentNo.Location = New System.Drawing.Point(66, 614)
         Me.txtStudentNo.Name = "txtStudentNo"
         Me.txtStudentNo.Size = New System.Drawing.Size(404, 41)
         Me.txtStudentNo.TabIndex = 21
@@ -105,7 +104,7 @@ Partial Class frmStudents
         'txtFirstName
         '
         Me.txtFirstName.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFirstName.Location = New System.Drawing.Point(228, 590)
+        Me.txtFirstName.Location = New System.Drawing.Point(66, 705)
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.Size = New System.Drawing.Size(404, 41)
         Me.txtFirstName.TabIndex = 22
@@ -113,7 +112,7 @@ Partial Class frmStudents
         'txtMiddleName
         '
         Me.txtMiddleName.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMiddleName.Location = New System.Drawing.Point(228, 646)
+        Me.txtMiddleName.Location = New System.Drawing.Point(66, 802)
         Me.txtMiddleName.Name = "txtMiddleName"
         Me.txtMiddleName.Size = New System.Drawing.Size(404, 41)
         Me.txtMiddleName.TabIndex = 23
@@ -121,32 +120,32 @@ Partial Class frmStudents
         'txtSearch
         '
         Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(228, 477)
+        Me.txtSearch.Location = New System.Drawing.Point(941, 76)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(404, 41)
+        Me.txtSearch.Size = New System.Drawing.Size(303, 41)
         Me.txtSearch.TabIndex = 24
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.BackColor = System.Drawing.Color.DarkBlue
+        Me.Label4.Font = New System.Drawing.Font("MS Reference Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label4.Image = CType(resources.GetObject("Label4.Image"), System.Drawing.Image)
-        Me.Label4.Location = New System.Drawing.Point(696, 654)
+        Me.Label4.Location = New System.Drawing.Point(543, 856)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(110, 28)
+        Me.Label4.Size = New System.Drawing.Size(134, 35)
         Me.Label4.TabIndex = 26
         Me.Label4.Text = "Course:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.BackColor = System.Drawing.Color.DarkBlue
+        Me.Label5.Font = New System.Drawing.Font("MS Reference Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Image = CType(resources.GetObject("Label5.Image"), System.Drawing.Image)
-        Me.Label5.Location = New System.Drawing.Point(696, 711)
+        Me.Label5.Location = New System.Drawing.Point(1024, 576)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(158, 28)
+        Me.Label5.Size = New System.Drawing.Size(193, 35)
         Me.Label5.TabIndex = 27
         Me.Label5.Text = "YearLevels:"
         '
@@ -155,7 +154,7 @@ Partial Class frmStudents
         Me.btnSearch.BackColor = System.Drawing.Color.DarkGoldenrod
         Me.btnSearch.Font = New System.Drawing.Font("Microsoft YaHei UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnSearch.Location = New System.Drawing.Point(28, 463)
+        Me.btnSearch.Location = New System.Drawing.Point(1250, 68)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(142, 60)
         Me.btnSearch.TabIndex = 29
@@ -167,9 +166,9 @@ Partial Class frmStudents
         Me.btnSave.BackColor = System.Drawing.Color.Green
         Me.btnSave.Font = New System.Drawing.Font("Microsoft YaHei UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnSave.Location = New System.Drawing.Point(1334, 257)
+        Me.btnSave.Location = New System.Drawing.Point(1021, 697)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(142, 60)
+        Me.btnSave.Size = New System.Drawing.Size(204, 60)
         Me.btnSave.TabIndex = 30
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = False
@@ -179,9 +178,9 @@ Partial Class frmStudents
         Me.btnUpdate.BackColor = System.Drawing.Color.DodgerBlue
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft YaHei UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnUpdate.Location = New System.Drawing.Point(1334, 334)
+        Me.btnUpdate.Location = New System.Drawing.Point(1021, 794)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(142, 60)
+        Me.btnUpdate.Size = New System.Drawing.Size(204, 60)
         Me.btnUpdate.TabIndex = 31
         Me.btnUpdate.Text = "Update"
         Me.btnUpdate.UseVisualStyleBackColor = False
@@ -191,9 +190,9 @@ Partial Class frmStudents
         Me.btnClear.BackColor = System.Drawing.Color.MediumBlue
         Me.btnClear.Font = New System.Drawing.Font("Microsoft YaHei UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnClear.Location = New System.Drawing.Point(1334, 414)
+        Me.btnClear.Location = New System.Drawing.Point(1021, 886)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(142, 60)
+        Me.btnClear.Size = New System.Drawing.Size(204, 60)
         Me.btnClear.TabIndex = 32
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -203,9 +202,9 @@ Partial Class frmStudents
         Me.btnBack.BackColor = System.Drawing.Color.Red
         Me.btnBack.Font = New System.Drawing.Font("Microsoft YaHei UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnBack.Location = New System.Drawing.Point(1334, 580)
+        Me.btnBack.Location = New System.Drawing.Point(1262, 794)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(142, 60)
+        Me.btnBack.Size = New System.Drawing.Size(202, 60)
         Me.btnBack.TabIndex = 33
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = False
@@ -214,7 +213,7 @@ Partial Class frmStudents
         '
         Me.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvStudents.Location = New System.Drawing.Point(25, 12)
+        Me.dgvStudents.Location = New System.Drawing.Point(128, 134)
         Me.dgvStudents.Name = "dgvStudents"
         Me.dgvStudents.RowHeadersVisible = False
         Me.dgvStudents.RowHeadersWidth = 51
@@ -225,12 +224,11 @@ Partial Class frmStudents
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft YaHei", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label6.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
-        Me.Label6.Location = New System.Drawing.Point(18, 415)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft YaHei", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label6.Location = New System.Drawing.Point(165, 40)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(402, 37)
+        Me.Label6.Size = New System.Drawing.Size(533, 50)
         Me.Label6.TabIndex = 38
         Me.Label6.Text = "Student Enrollment Viewed"
         '
@@ -238,7 +236,7 @@ Partial Class frmStudents
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = Global.Registrar_Document_Request_System.My.Resources.Resources.logo
-        Me.PictureBox1.Location = New System.Drawing.Point(1309, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(184, 116)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -250,9 +248,9 @@ Partial Class frmStudents
         Me.btnDelete.BackColor = System.Drawing.Color.Firebrick
         Me.btnDelete.Font = New System.Drawing.Font("Microsoft YaHei UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnDelete.Location = New System.Drawing.Point(1334, 496)
+        Me.btnDelete.Location = New System.Drawing.Point(1262, 697)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(142, 60)
+        Me.btnDelete.Size = New System.Drawing.Size(202, 60)
         Me.btnDelete.TabIndex = 41
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = False
@@ -262,7 +260,7 @@ Partial Class frmStudents
         Me.cboCourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCourse.FormattingEnabled = True
         Me.cboCourse.Items.AddRange(New Object() {"BSIT", "BSCS", "BSBA", "BSCrim", "BSHM", "BSTM"})
-        Me.cboCourse.Location = New System.Drawing.Point(885, 648)
+        Me.cboCourse.Location = New System.Drawing.Point(540, 897)
         Me.cboCourse.Name = "cboCourse"
         Me.cboCourse.Size = New System.Drawing.Size(404, 39)
         Me.cboCourse.TabIndex = 25
@@ -272,15 +270,15 @@ Partial Class frmStudents
         Me.cboYearLevel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboYearLevel.FormattingEnabled = True
         Me.cboYearLevel.Items.AddRange(New Object() {"1st Year", "2nd Year", "3rd Year", "4th Year"})
-        Me.cboYearLevel.Location = New System.Drawing.Point(885, 705)
+        Me.cboYearLevel.Location = New System.Drawing.Point(1021, 622)
         Me.cboYearLevel.Name = "cboYearLevel"
-        Me.cboYearLevel.Size = New System.Drawing.Size(404, 39)
+        Me.cboYearLevel.Size = New System.Drawing.Size(313, 39)
         Me.cboYearLevel.TabIndex = 28
         '
         'txtLastName
         '
         Me.txtLastName.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLastName.Location = New System.Drawing.Point(228, 702)
+        Me.txtLastName.Location = New System.Drawing.Point(66, 894)
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(404, 41)
         Me.txtLastName.TabIndex = 43
@@ -288,31 +286,31 @@ Partial Class frmStudents
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.BackColor = System.Drawing.Color.DarkBlue
+        Me.Label7.Font = New System.Drawing.Font("MS Reference Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label7.Image = CType(resources.GetObject("Label7.Image"), System.Drawing.Image)
-        Me.Label7.Location = New System.Drawing.Point(23, 711)
+        Me.Label7.Location = New System.Drawing.Point(60, 856)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(155, 28)
+        Me.Label7.Size = New System.Drawing.Size(189, 35)
         Me.Label7.TabIndex = 42
         Me.Label7.Text = "Last Name:"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.BackColor = System.Drawing.Color.DarkBlue
+        Me.Label8.Font = New System.Drawing.Font("MS Reference Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label8.Image = CType(resources.GetObject("Label8.Image"), System.Drawing.Image)
-        Me.Label8.Location = New System.Drawing.Point(696, 480)
+        Me.Label8.Location = New System.Drawing.Point(543, 576)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(116, 28)
+        Me.Label8.Size = New System.Drawing.Size(142, 35)
         Me.Label8.TabIndex = 44
         Me.Label8.Text = "Section:"
         '
         'txtSection
         '
         Me.txtSection.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSection.Location = New System.Drawing.Point(885, 477)
+        Me.txtSection.Location = New System.Drawing.Point(540, 619)
         Me.txtSection.Name = "txtSection"
         Me.txtSection.Size = New System.Drawing.Size(404, 41)
         Me.txtSection.TabIndex = 46
@@ -320,7 +318,7 @@ Partial Class frmStudents
         'txtContactNumber
         '
         Me.txtContactNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactNumber.Location = New System.Drawing.Point(885, 532)
+        Me.txtContactNumber.Location = New System.Drawing.Point(540, 705)
         Me.txtContactNumber.Name = "txtContactNumber"
         Me.txtContactNumber.Size = New System.Drawing.Size(404, 41)
         Me.txtContactNumber.TabIndex = 48
@@ -328,24 +326,24 @@ Partial Class frmStudents
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.BackColor = System.Drawing.Color.DarkBlue
+        Me.Label10.Font = New System.Drawing.Font("MS Reference Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label10.Image = CType(resources.GetObject("Label10.Image"), System.Drawing.Image)
-        Me.Label10.Location = New System.Drawing.Point(696, 541)
+        Me.Label10.Location = New System.Drawing.Point(543, 667)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(161, 28)
+        Me.Label10.Size = New System.Drawing.Size(196, 35)
         Me.Label10.TabIndex = 47
         Me.Label10.Text = "Contact No:"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.BackColor = System.Drawing.Color.DarkBlue
+        Me.Label9.Font = New System.Drawing.Font("MS Reference Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label9.Image = CType(resources.GetObject("Label9.Image"), System.Drawing.Image)
-        Me.Label9.Location = New System.Drawing.Point(696, 597)
+        Me.Label9.Location = New System.Drawing.Point(543, 764)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(104, 28)
+        Me.Label9.Size = New System.Drawing.Size(126, 35)
         Me.Label9.TabIndex = 50
         Me.Label9.Text = "Status:"
         '
@@ -354,17 +352,17 @@ Partial Class frmStudents
         Me.cboStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboStatus.FormattingEnabled = True
         Me.cboStatus.Items.AddRange(New Object() {"Enrolled", "Graduated", "Inactive"})
-        Me.cboStatus.Location = New System.Drawing.Point(885, 591)
+        Me.cboStatus.Location = New System.Drawing.Point(540, 805)
         Me.cboStatus.Name = "cboStatus"
         Me.cboStatus.Size = New System.Drawing.Size(404, 39)
         Me.cboStatus.TabIndex = 49
         '
         'PictureBox2
         '
-        Me.PictureBox2.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
-        Me.PictureBox2.Location = New System.Drawing.Point(12, 410)
+        Me.PictureBox2.BackColor = System.Drawing.Color.DarkBlue
+        Me.PictureBox2.Location = New System.Drawing.Point(-16, 544)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(1290, 350)
+        Me.PictureBox2.Size = New System.Drawing.Size(1531, 449)
         Me.PictureBox2.TabIndex = 51
         Me.PictureBox2.TabStop = False
         '
@@ -372,9 +370,8 @@ Partial Class frmStudents
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("MS Reference Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label11.Image = CType(resources.GetObject("Label11.Image"), System.Drawing.Image)
-        Me.Label11.Location = New System.Drawing.Point(224, 452)
+        Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label11.Location = New System.Drawing.Point(937, 50)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(241, 23)
         Me.Label11.TabIndex = 52
@@ -385,7 +382,7 @@ Partial Class frmStudents
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.ClientSize = New System.Drawing.Size(1515, 772)
+        Me.ClientSize = New System.Drawing.Size(1509, 989)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.cboStatus)
@@ -416,6 +413,7 @@ Partial Class frmStudents
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PictureBox2)
+        Me.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmStudents"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

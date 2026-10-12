@@ -37,6 +37,7 @@ Partial Class frmViewRequests
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btnBack = New System.Windows.Forms.Button()
+        Me.Label13 = New System.Windows.Forms.Label()
         CType(Me.dgvRequests, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,9 +110,9 @@ Partial Class frmViewRequests
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.DarkBlue
         Me.Label1.Font = New System.Drawing.Font("MS Reference Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
         Me.Label1.Location = New System.Drawing.Point(1075, 212)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(169, 23)
@@ -121,9 +122,9 @@ Partial Class frmViewRequests
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.DarkBlue
         Me.Label3.Font = New System.Drawing.Font("MS Reference Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label3.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
         Me.Label3.Location = New System.Drawing.Point(1075, 292)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(168, 23)
@@ -143,9 +144,9 @@ Partial Class frmViewRequests
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.DarkBlue
         Me.Label4.Font = New System.Drawing.Font("MS Reference Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label4.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
         Me.Label4.Location = New System.Drawing.Point(1075, 375)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(145, 23)
@@ -176,7 +177,7 @@ Partial Class frmViewRequests
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
+        Me.PictureBox1.BackColor = System.Drawing.Color.DarkBlue
         Me.PictureBox1.Location = New System.Drawing.Point(1062, -4)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(280, 759)
@@ -185,7 +186,7 @@ Partial Class frmViewRequests
         '
         'PictureBox2
         '
-        Me.PictureBox2.BackgroundImage = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
+        Me.PictureBox2.BackColor = System.Drawing.Color.DarkBlue
         Me.PictureBox2.Image = Global.Registrar_Document_Request_System.My.Resources.Resources.logo
         Me.PictureBox2.Location = New System.Drawing.Point(1129, 12)
         Me.PictureBox2.Name = "PictureBox2"
@@ -206,12 +207,25 @@ Partial Class frmViewRequests
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = False
         '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Label13.Font = New System.Drawing.Font("Microsoft YaHei", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label13.Location = New System.Drawing.Point(12, 29)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(378, 50)
+        Me.Label13.TabIndex = 38
+        Me.Label13.Text = "Document Request"
+        '
         'frmViewRequests
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Goldenrod
+        Me.BackColor = System.Drawing.Color.DarkGoldenrod
         Me.ClientSize = New System.Drawing.Size(1338, 750)
+        Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.btnUpdate)
@@ -254,4 +268,5 @@ Partial Class frmViewRequests
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents btnBack As Button
+    Friend WithEvents Label13 As Label
 End Class

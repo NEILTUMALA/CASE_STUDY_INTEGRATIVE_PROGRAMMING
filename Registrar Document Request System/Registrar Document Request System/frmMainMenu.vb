@@ -2,7 +2,7 @@
 
 Public Class frmMainMenu
 
-    Private connStr As String = "Server=127.0.0.1;Port=3307;Database=student_db;Uid=root;Pwd=;"
+    Private connStr As String = "Server=127.0.0.1;Port=3307;Database=registrar_db;Uid=root;Pwd=;"
     Private Sub frmMainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         ' Greeting based on log in role
@@ -202,4 +202,11 @@ Public Class frmMainMenu
         End If
     End Sub
 
+    Private Sub lblUsername_Click(sender As Object, e As EventArgs) Handles lblUsername.Click
+
+    End Sub
+
+    Private Sub lblEmployeeName_Click(sender As Object, e As EventArgs) Handles lblEmployeeName.Click
+
+    End Sub
 End Class

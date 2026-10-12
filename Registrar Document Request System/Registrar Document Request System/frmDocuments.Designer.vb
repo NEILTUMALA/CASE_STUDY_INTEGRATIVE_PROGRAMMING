@@ -41,6 +41,7 @@ Partial Class frmDocuments
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.dgvDocuments, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,10 +50,10 @@ Partial Class frmDocuments
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.DarkBlue
         Me.Label2.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Image = CType(resources.GetObject("Label2.Image"), System.Drawing.Image)
-        Me.Label2.Location = New System.Drawing.Point(588, 279)
+        Me.Label2.Location = New System.Drawing.Point(83, 542)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(230, 28)
         Me.Label2.TabIndex = 4
@@ -62,7 +63,7 @@ Partial Class frmDocuments
         '
         Me.txtDocumentName.AcceptsReturn = True
         Me.txtDocumentName.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDocumentName.Location = New System.Drawing.Point(593, 320)
+        Me.txtDocumentName.Location = New System.Drawing.Point(88, 583)
         Me.txtDocumentName.Name = "txtDocumentName"
         Me.txtDocumentName.Size = New System.Drawing.Size(404, 41)
         Me.txtDocumentName.TabIndex = 21
@@ -71,7 +72,7 @@ Partial Class frmDocuments
         '
         Me.txtFee.AcceptsReturn = True
         Me.txtFee.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFee.Location = New System.Drawing.Point(593, 416)
+        Me.txtFee.Location = New System.Drawing.Point(88, 679)
         Me.txtFee.Name = "txtFee"
         Me.txtFee.Size = New System.Drawing.Size(404, 41)
         Me.txtFee.TabIndex = 22
@@ -80,19 +81,19 @@ Partial Class frmDocuments
         '
         Me.txtSearch.AcceptsReturn = True
         Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(593, 222)
+        Me.txtSearch.Location = New System.Drawing.Point(209, 431)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(404, 41)
+        Me.txtSearch.Size = New System.Drawing.Size(283, 41)
         Me.txtSearch.TabIndex = 23
         Me.txtSearch.Tag = ""
         '
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.DarkBlue
         Me.Label1.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Image = CType(resources.GetObject("Label1.Image"), System.Drawing.Image)
-        Me.Label1.Location = New System.Drawing.Point(588, 376)
+        Me.Label1.Location = New System.Drawing.Point(83, 639)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(203, 28)
         Me.Label1.TabIndex = 24
@@ -103,7 +104,7 @@ Partial Class frmDocuments
         Me.cboStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboStatus.FormattingEnabled = True
         Me.cboStatus.Items.AddRange(New Object() {"Active", "Inactive"})
-        Me.cboStatus.Location = New System.Drawing.Point(593, 513)
+        Me.cboStatus.Location = New System.Drawing.Point(88, 776)
         Me.cboStatus.Name = "cboStatus"
         Me.cboStatus.Size = New System.Drawing.Size(404, 39)
         Me.cboStatus.TabIndex = 25
@@ -111,10 +112,10 @@ Partial Class frmDocuments
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.DarkBlue
         Me.Label3.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Image = CType(resources.GetObject("Label3.Image"), System.Drawing.Image)
-        Me.Label3.Location = New System.Drawing.Point(588, 472)
+        Me.Label3.Location = New System.Drawing.Point(83, 735)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(104, 28)
         Me.Label3.TabIndex = 26
@@ -125,7 +126,7 @@ Partial Class frmDocuments
         Me.btnSearch.BackColor = System.Drawing.Color.DarkGoldenrod
         Me.btnSearch.Font = New System.Drawing.Font("Microsoft YaHei UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnSearch.Location = New System.Drawing.Point(593, 164)
+        Me.btnSearch.Location = New System.Drawing.Point(498, 427)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(119, 52)
         Me.btnSearch.TabIndex = 27
@@ -137,7 +138,7 @@ Partial Class frmDocuments
         Me.btnSave.BackColor = System.Drawing.Color.Green
         Me.btnSave.Font = New System.Drawing.Font("Microsoft YaHei UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSave.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnSave.Location = New System.Drawing.Point(570, 575)
+        Me.btnSave.Location = New System.Drawing.Point(537, 524)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(142, 60)
         Me.btnSave.TabIndex = 28
@@ -149,7 +150,7 @@ Partial Class frmDocuments
         Me.btnUpdate.BackColor = System.Drawing.Color.DarkCyan
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft YaHei UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnUpdate.Location = New System.Drawing.Point(727, 575)
+        Me.btnUpdate.Location = New System.Drawing.Point(537, 606)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(142, 60)
         Me.btnUpdate.TabIndex = 29
@@ -161,7 +162,7 @@ Partial Class frmDocuments
         Me.btnClear.BackColor = System.Drawing.Color.Blue
         Me.btnClear.Font = New System.Drawing.Font("Microsoft YaHei UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnClear.Location = New System.Drawing.Point(885, 575)
+        Me.btnClear.Location = New System.Drawing.Point(537, 688)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(142, 60)
         Me.btnClear.TabIndex = 30
@@ -173,9 +174,9 @@ Partial Class frmDocuments
         Me.btnBack.BackColor = System.Drawing.Color.Red
         Me.btnBack.Font = New System.Drawing.Font("Microsoft YaHei UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnBack.Location = New System.Drawing.Point(809, 659)
+        Me.btnBack.Location = New System.Drawing.Point(38, 860)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(142, 60)
+        Me.btnBack.Size = New System.Drawing.Size(663, 40)
         Me.btnBack.TabIndex = 31
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = False
@@ -184,22 +185,21 @@ Partial Class frmDocuments
         '
         Me.dgvDocuments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvDocuments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvDocuments.Location = New System.Drawing.Point(6, 12)
+        Me.dgvDocuments.Location = New System.Drawing.Point(114, 100)
         Me.dgvDocuments.Name = "dgvDocuments"
         Me.dgvDocuments.RowHeadersVisible = False
         Me.dgvDocuments.RowHeadersWidth = 51
         Me.dgvDocuments.RowTemplate.Height = 24
-        Me.dgvDocuments.Size = New System.Drawing.Size(507, 739)
+        Me.dgvDocuments.Size = New System.Drawing.Size(507, 312)
         Me.dgvDocuments.TabIndex = 32
         '
         'PictureBox1
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImage = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
+        Me.PictureBox1.BackColor = System.Drawing.Color.DarkGoldenrod
         Me.PictureBox1.Image = Global.Registrar_Document_Request_System.My.Resources.Resources.logo
-        Me.PictureBox1.Location = New System.Drawing.Point(688, 31)
+        Me.PictureBox1.Location = New System.Drawing.Point(-17, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(227, 107)
+        Me.PictureBox1.Size = New System.Drawing.Size(177, 91)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 33
         Me.PictureBox1.TabStop = False
@@ -209,7 +209,7 @@ Partial Class frmDocuments
         Me.btnDelete.BackColor = System.Drawing.Color.Firebrick
         Me.btnDelete.Font = New System.Drawing.Font("Microsoft YaHei UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnDelete.Location = New System.Drawing.Point(649, 659)
+        Me.btnDelete.Location = New System.Drawing.Point(537, 764)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(142, 60)
         Me.btnDelete.TabIndex = 34
@@ -218,10 +218,10 @@ Partial Class frmDocuments
         '
         'PictureBox2
         '
-        Me.PictureBox2.Image = Global.Registrar_Document_Request_System.My.Resources.Resources._91e0436a341ea9b64d6a6e91a9b32ba0
-        Me.PictureBox2.Location = New System.Drawing.Point(519, -14)
+        Me.PictureBox2.BackColor = System.Drawing.Color.DarkBlue
+        Me.PictureBox2.Location = New System.Drawing.Point(-17, 507)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(561, 787)
+        Me.PictureBox2.Size = New System.Drawing.Size(763, 433)
         Me.PictureBox2.TabIndex = 35
         Me.PictureBox2.TabStop = False
         '
@@ -231,34 +231,46 @@ Partial Class frmDocuments
         Me.Label4.Font = New System.Drawing.Font("MS Reference Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label4.Image = CType(resources.GetObject("Label4.Image"), System.Drawing.Image)
-        Me.Label4.Location = New System.Drawing.Point(767, 191)
+        Me.Label4.Location = New System.Drawing.Point(918, 240)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(0, 35)
+        Me.Label4.Size = New System.Drawing.Size(0, 28)
         Me.Label4.TabIndex = 36
         '
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.DarkGoldenrod
         Me.Label5.Font = New System.Drawing.Font("MS Reference Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Image = CType(resources.GetObject("Label5.Image"), System.Drawing.Image)
-        Me.Label5.Location = New System.Drawing.Point(718, 191)
+        Me.Label5.Location = New System.Drawing.Point(193, 475)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(278, 22)
         Me.Label5.TabIndex = 37
         Me.Label5.Text = "Search by: Document Name"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft YaHei", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label6.Location = New System.Drawing.Point(133, 29)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(474, 50)
+        Me.Label6.TabIndex = 39
+        Me.Label6.Text = "Document Management"
         '
         'frmDocuments
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.ClientSize = New System.Drawing.Size(1073, 766)
+        Me.ClientSize = New System.Drawing.Size(742, 927)
+        Me.Controls.Add(Me.dgvDocuments)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.dgvDocuments)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnUpdate)
@@ -302,4 +314,5 @@ Partial Class frmDocuments
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
 End Class

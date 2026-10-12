@@ -12,7 +12,7 @@ Module dbConnect
             cn.Close()
         End If
 
-        cn.ConnectionString = "server=localhost;port=3307;user=root;password=;database=student_db"
+        cn.ConnectionString = "server=localhost;port=3307;user=root;password=;database=registrar_db"
         MsgBox("Connection Success", MsgBoxStyle.Information)
         cn.Open()
     End Sub
