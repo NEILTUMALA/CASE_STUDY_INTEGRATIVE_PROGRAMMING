@@ -185,7 +185,7 @@ Partial Class frmUsers
         '
         'btnDelete
         '
-        Me.btnDelete.BackColor = System.Drawing.SystemColors.Desktop
+        Me.btnDelete.BackColor = System.Drawing.Color.Red
         Me.btnDelete.Font = New System.Drawing.Font("Microsoft YaHei", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.btnDelete.Location = New System.Drawing.Point(1143, 553)
@@ -221,12 +221,12 @@ Partial Class frmUsers
         '
         'btnBack
         '
-        Me.btnBack.BackColor = System.Drawing.SystemColors.Desktop
+        Me.btnBack.BackColor = System.Drawing.Color.Red
         Me.btnBack.Font = New System.Drawing.Font("Microsoft YaHei", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnBack.Location = New System.Drawing.Point(816, 668)
+        Me.btnBack.Location = New System.Drawing.Point(683, 677)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(141, 59)
+        Me.btnBack.Size = New System.Drawing.Size(389, 50)
         Me.btnBack.TabIndex = 43
         Me.btnBack.Text = "Back"
         Me.btnBack.UseVisualStyleBackColor = False
